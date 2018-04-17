@@ -1,0 +1,12 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  box-sizing: border-box; 
+  background-color: olive;
+} 
+
+page{
+  height: 100%
+}

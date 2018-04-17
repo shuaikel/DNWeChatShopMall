@@ -1,0 +1,22 @@
+
+<!-- <view class='containera'> -->
+  <!-- <swiper class="community-swiper" vertical="true">
+    <block wx:for="{{BannerList}}" wx:key="{{Id}}" wx:for-index="idx">
+      <swiper-item class="swiper-item-container">
+        <import src = "activityIndexPage/activityItem.wxml" />
+        <template is="activityItemXML" data="{{item : BannerList[idx]}}"/>
+      </swiper-item>
+    </block>
+</swiper> -->
+
+
+<scroll-view class='community-swiper' scroll-y="true">
+      <block wx:for="{{BannerList}}" wx:key="{{Id}}" wx:for-index="idx">
+      <view class="swiper-item-container">
+        <import src = "activityIndexPage/activityItem.wxml" />
+        <template is="activityItemXML" data="{{item : BannerList[idx]}}"/>
+      </view>
+    </block>
+</scroll-view>
+
+<!-- </view> -->

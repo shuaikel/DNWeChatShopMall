@@ -1,0 +1,6 @@
+
+<template name="activityItemXML">
+  <view class='activityContainer' bindtap='activityItemTapAction' data-contentModel="{{item}}">
+    <image src='{{item.Picture}}' class='activityImage'></image>
+  </view>
+</template>

@@ -1,4 +1,6 @@
 
+var api = require('../../api/api.js')
+
 Page({
 
   /**
@@ -12,7 +14,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.getCategoryIndexAction()
+  },
+  /**
+   * 获取推荐列表
+   */
+  getCategoryIndexAction:function(e){
+    var date = new Date().getTime()
+    api.apiForCategory({
+      method: "POST",
+      query:{
+        date: date
+      },
+      success:(res)=>{
+        debugger
+      }
+    })
   },
 
   /**

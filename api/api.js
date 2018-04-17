@@ -1,4 +1,4 @@
-const host = 'http://ws.mammasay.com'
+const host = 'https://ws.mammasay.com'
 const wxRequest = (params, url) => {
   wx.showToast({
     title: '加载中',
@@ -30,7 +30,11 @@ const getVolById = (params) => wxRequest(params, host + '/api/hp/detail/' + para
 // community page
 const apiForCommunityPage = (params) => wxRequest(params, host + '/api/cms/lelch/communityPage')
 
+// 获取推荐列表
+const apiForCategory = (params) => wxRequest(params, host + '/api/shop/category/getCategoryDown?time=' + params.query.date +'&ID=0&TenantID=1')
+
 module.exports = {
   getVolById,
-  apiForCommunityPage
+  apiForCommunityPage,
+  apiForCategory
 }

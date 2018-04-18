@@ -1,0 +1,40 @@
+
+
+.ClassifyProductListPage_ContainerView{
+  height: 100%;
+  width: 100%;
+   margin: 0 auto; 
+  background: olivedrab;
+}
+
+.ClassifyProductListPage_TopView{
+  height: 45px;
+  margin-top: 0px;
+  width: 100%;
+  margin-left: 0;
+  background: palevioletred;
+}
+
+.ClassifyProductListPage_itemContainerView{
+  width: 100%;
+  height: calc(100% - 45px);
+  background: #f3f3f3;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.ClassifyProductListPage_item{
+  width: 50%;
+  height: 200px;
+  background: #f3f3f3;
+  display: flex;
+}
+
+.ClassifyProductListPage_item_image{
+  margin-top: 10px;
+  margin-left: 6px;
+  margin-right: 6px;
+  height: 130px;
+  background: white;
+}

@@ -1,0 +1,15 @@
+
+
+
+<scroll-view class='ClassifyProductListPage_ContainerView' scroll-y='true'>
+      <view class='ClassifyProductListPage_TopView'></view>
+
+      <view class='ClassifyProductListPage_itemContainerView'>
+          <block wx:for="{{ProductLists}}" wx:key="{{ID}}" wx:for-index="idx">
+              <view class='ClassifyProductListPage_item'>
+                  <image class='ClassifyProductListPage_item_image' src='{{item.Picture}}' mode='scaleToFill'></image>
+                  
+              </view>
+          </block>
+      </view>
+</scroll-view>

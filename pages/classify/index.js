@@ -81,7 +81,7 @@ Page({
   userCheckProductAction:function(e){
     let index = e.currentTarget.dataset.index;
     wx.navigateTo({
-      url: 'ProductListPage/ClassifyProductListPage',
+      url: 'ProductListPage/ClassifyProductListPage?index='+index,
     })
   },
   /**

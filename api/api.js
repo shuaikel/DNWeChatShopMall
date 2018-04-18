@@ -34,7 +34,7 @@ const apiForCommunityPage = (params) => wxRequest(params, host + '/api/cms/lelch
 const apiForCategory = (params) => wxRequest(params, host + '/api/shop/category/getCategoryDown?time=' + params.query.date)
 
 // 分类获取商品列表
-const apiForCategoryProduct = (params) => wxRequest(params, host + '/api/shop/category/getCategoryByID?time=' + params.query.date)
+const apiForCategoryProduct = (params) => wxRequest(params, host + '/api/shop/prdoucts/getProductsCategoryPage?time=' + params.query.date)
 
 module.exports = {
   getVolById,

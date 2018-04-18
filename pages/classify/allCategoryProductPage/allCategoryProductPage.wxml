@@ -1,0 +1,24 @@
+
+
+<template name="allCategoryProductPage">
+    <view>
+        <image src="https://static.mammasay.com/image/20171102/6364522992248564746252872.jpg" class='productImage' mode='scaleToFill'></image>
+
+        <view></view>
+    </view>
+
+    <view class='allCategoryChildContainerView'>
+
+        <block wx:for="{{item['Childs']}}"  wx:for-index="idx" wx:key="{{ID}}">
+             <view class='categoryListsItem_container' bindtap='userCheckProductAction' data-index='{{idx}}'>
+                <text class='categoryListsItem_text'>{{item}}</text>
+                <image src='../../images/Statistics_ic_next.png' class='categoryListsItem_indexIcon'></image>
+                <view class='categoryListsItem_caverView'></view>
+
+            </view> 
+        </block>
+    </view>
+
+    
+
+</template>

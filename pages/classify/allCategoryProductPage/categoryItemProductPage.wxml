@@ -1,0 +1,23 @@
+
+
+<template name="categoryItemProductPage">
+    <view>
+        <image src="{{bannerImg}}" class='productImage' mode='scaleToFill'></image>
+    </view>
+
+    <view class='allCategoryChildContainerView' style='background:white'>
+          <block wx:for="{{item}}" wx:key="{{ID}}" wx:for-index="idx">
+              <view class='product_ContainerView'>
+                  <text class='product_item_Name'>{{item.Name}}</text>
+                  <view class='product_item_Container'>
+                      <block wx:for="{{item.Childs}}" wx:key="{{ID}}" wx:for-index="idx">
+                          <view class='product_item_View'>
+                              <image class='product_item_image' src='{{item.Picture}}' mode='aspectFit'></image>
+                              <text class='centerText'>{{item.Name}}</text>
+                          </view>
+                      </block>
+                  </view>
+              </view>
+          </block>
+    </view>
+</template>

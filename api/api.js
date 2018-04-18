@@ -31,10 +31,14 @@ const getVolById = (params) => wxRequest(params, host + '/api/hp/detail/' + para
 const apiForCommunityPage = (params) => wxRequest(params, host + '/api/cms/lelch/communityPage')
 
 // 获取推荐列表
-const apiForCategory = (params) => wxRequest(params, host + '/api/shop/category/getCategoryDown?time=' + params.query.date +'&ID=0&TenantID=1')
+const apiForCategory = (params) => wxRequest(params, host + '/api/shop/category/getCategoryDown?time=' + params.query.date)
+
+// 分类获取商品列表
+const apiForCategoryProduct = (params) => wxRequest(params, host + '/api/shop/category/getCategoryByID?time=' + params.query.date)
 
 module.exports = {
   getVolById,
   apiForCommunityPage,
-  apiForCategory
+  apiForCategory,
+  apiForCategoryProduct
 }

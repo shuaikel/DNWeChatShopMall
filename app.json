@@ -6,7 +6,8 @@
     "pages/cart/index",
     "pages/my/index",
     "pages/community/index",
-    "pages/webView/CommunitywebView"
+    "pages/webView/CommunitywebView",
+    "pages/classify/ProductListPage/ClassifyProductListPage"
   ],
   "window":{
     "backgroundTextStyle": "white",

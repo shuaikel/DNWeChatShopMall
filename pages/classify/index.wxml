@@ -1,0 +1,31 @@
+
+
+<scroll-view class='category_container' scroll-y="true">
+  <view class='category_search_Container'>
+      <view class='category_search_Container_view' bindtap='userSearchAction'>
+          <image src='../../images/login_btn_see.png' class='category_search_Container_icon'></image>
+          <text class='category_search_Container_text'>请输入关键词搜索商品/活动/用户分享</text>
+      </view>
+  </view>
+
+
+  <view class='categoryLists_Container'>
+      <block wx:for="{{categoryLists}}" wx:key="{{ID}}" wx:for-index="idx">
+          <view class='category_item_container' bindtap='handleUserSelectProductCategory' data-item='{{item}}' data-index='{{idx}}' style='background:{{idx ==currentSelectCategory ?indexSelectBGColor: indexBGColor}};'>
+              <view class='category_item_indexView' hidden='{{idx != currentSelectCategory}}'></view>
+              <view class='category_item_text_container'>
+                  <text class='category_item_text'>{{categoryLists[idx].Name}}</text>
+              </view>
+          </view>
+      </block>
+  </view>
+
+
+  <view class='category_product_container'>
+      <import src="allCategoryProductPage/allCategoryProductPage.wxml" />
+      <import src='allCategoryProductPage/categoryItemProductPage.wxml' />
+
+      <template is='{{currentSelectCategory==0 ? "allCategoryProductPage" : "categoryItemProductPage"}}' data="{{item :currentSelectCategory==0 ? categoryLists[currentSelectCategory] : categoryProductLists[currentSelectCategory-1] , bannerImg:categoryLists[currentSelectCategory].Picture}}"/>
+
+  </view>
+</scroll-view>

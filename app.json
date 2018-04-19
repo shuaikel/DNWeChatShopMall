@@ -7,7 +7,9 @@
     "pages/my/index",
     "pages/community/index",
     "pages/webView/CommunitywebView",
-    "pages/classify/ProductListPage/ClassifyProductListPage"
+    "pages/classify/ProductListPage/ClassifyProductListPage",
+    "pages/classify/ProductDetailPage/ProductDetailPage",
+    "pages/classify/ProductSearch/ProductSearch"
   ],
   "window":{
     "backgroundTextStyle": "white",

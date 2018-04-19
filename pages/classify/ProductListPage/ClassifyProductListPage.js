@@ -7,40 +7,66 @@ Page({
    * 页面的初始数据
    */
   data: {
-    PageIndex : 1,
-    ProductLists : []
+    PageIndex : 1,  // 加载页数
+    ProductLists : [],
+    index : '', // 页面指示
+    searchKeys : ['新品','价格','可积分','可兑换'],
+    sortIndex : 0,
+    defaultColor :'#333333',
+    selectColor : '#2f88ff',
+    SortType : 0,
+    DifferentType : '',
+    TagWeight : '',
+    CategoryID : ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.userGetCategoryProductByParam(options)
+    var DifferentType = ''
+    var TagWeight = ''
+    var CategoryID = ""
+    var e = options.index
+    var that = this
+    if (e == '0' || e == '1' || e == '2' || e=='100') {
+      DifferentType = 2
+    }
+    if (e == '100'){
+      CategoryID = options.CategoryID
+    }
+    if (e == '3') {
+      TagWeight = 1;
+    } else if (e == '4') {
+      TagWeight = 2;
+    }
+    this.setData({ 
+      index: options.index, 
+      DifferentType: DifferentType, 
+      TagWeight: TagWeight, CategoryID: CategoryID},()=>{
+        that.userGetCategoryProductByParam(options.index)
+      })
+    
   },
   /**
    * 加载商品列表
    */
-  userGetCategoryProductByParam : function(e){
-    var DifferentType = ''
-    var TagWeight = ''
+  userGetCategoryProductByParam : function(e,isLoadMore){
+    var DifferentType = this.data.DifferentType
+    var TagWeight = this.data.TagWeight
+    var SortType = this.data.SortType
     var PageIndex = this.data.PageIndex
+    var CategoryID = this.data.CategoryID
     var date = new Date().getTime()
-    if (e.index == '0' || e.index == '1' || e.index == '2'){
-      DifferentType = 2
-    }
-    if (e.index == '3'){
-      TagWeight = 1;
-    }else if(e.index == '4'){
-      TagWeight = 2;
-    }
-    api.apiForCategoryProduct({
+
+    api.apiForCategoryProductList({
       method: "POST",
       data: {
         PageIndex: PageIndex,
         TenantID: 1,
         PageSize : 20,
-        SortType : 0,
-        CategoryID : '',
+        SortType: SortType,
+        CategoryID: CategoryID,
         Sortkey : 2,
         DifferentType: DifferentType,
         SeasonWeight : '',
@@ -53,13 +79,78 @@ Page({
       success: (res) => {
         if (res.data.Code == 0){
           var tempArray = this.data.ProductLists
-          tempArray = tempArray.concat(res.data.Data)
-          this.setData({ ProductLists: tempArray })
+          var itemIndex = this.data.PageIndex
+          if (res.data.Data.length > 0){
+            itemIndex = itemIndex + 1
+            if (isLoadMore == true){
+              tempArray = tempArray.concat(res.data.Data)
+              this.setData({
+                ProductLists: tempArray,
+                PageIndex: itemIndex
+              })
+            }else{
+              this.setData({
+                ProductLists: res.data.Data,
+                PageIndex: itemIndex
+              })
+            }
+          }
         }
       }
     }) 
   },
-
+  /**
+   * 加载更多数据
+   */
+  loadMoreAction : function(e){
+    this.userGetCategoryProductByParam(this.data.index,true)
+  },
+  /**
+   * 用户更改排序规则
+   */
+  userChangeSortAction : function(e){
+    let sortIndex = e.currentTarget.dataset.sortindex
+    var SortType;
+    var DifferentType;
+    var TagWeight;
+    const that = this;
+    if (sortIndex == 0){
+      SortType = 0
+      DifferentType = 2
+      TagWeight = ''
+    }else if(sortIndex == 1){
+      SortType = 0
+      DifferentType = ''
+      TagWeight = ''
+    }else if(sortIndex == 2){
+      SortType = 1
+      DifferentType = ''
+      TagWeight = 1
+    }else{
+      SortType = 1
+      DifferentType = ''
+      TagWeight = 2
+    }
+    this.setData({
+      SortType: SortType,
+      DifferentType: DifferentType,
+      TagWeight: TagWeight, 
+      PageIndex: 1, 
+      sortIndex: sortIndex
+    }, (e) => {
+      that.userGetCategoryProductByParam(this.data.index, false)
+    })
+    
+  },
+  /**
+   * 查看商品详情
+   */
+  userCheckProductDetailAction :function(e){
+    var productID = e.currentTarget.dataset.itemmodel.ID
+    wx.navigateTo({
+      url: '../ProductDetailPage/ProductDetailPage?ID=' + productID,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

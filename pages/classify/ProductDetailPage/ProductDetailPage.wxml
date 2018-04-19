@@ -1,0 +1,56 @@
+
+<view class='product_main_container'>
+    <scroll-view class="product_scrollView" scroll-y='true'>
+        <view class='product_detail_top_segmentContainer'>
+            <view class='product_detail_top_segment'>
+                <block wx:for="{{segmentSortArray}}" wx:key="*this" wx:for-index="idx">
+                    <view class='product_detail_top_segment_Item'>{{item}}</view>
+                </block>
+            </view>
+        </view>
+
+        <view class='product_detail_bottom_container'>
+            <view class='product_detail_bottom_container_caver'></view>
+            <image class='product_detail_bottom_container_image' src='{{producetDetailModel.Picture}}'></image>
+            <view class='product_detail_bottom_container_caver'></view>
+            <view class='product_detail_bottom_score_index_container'>
+                <text class='product_detail_bottom_score_index_score'>{{producetDetailModel.TagWeight==2?"不可积分":"可积分"}}</text>
+                <text class='product_detail_bottom_score_index_score_name'>{{producetDetailModel.Name}}</text>
+
+                <view class='product_detail_bottom_price_container'>{{"适用人群："+producetDetailModel.ShortDescription}}</view>
+
+                <view class='product_detail_bottom_price_container'>售价：<text class='product_detail_bottom_price_Score'>{{producetDetailModel.PointPrice}}</text> 积分</view>
+                <view class='product_detail_bottom_container_caver'></view>
+
+                <view class='product_detail_bottom_container_transport_container'>
+                    <view class='product_detail_bottom_price_container'>运费：{{producetDetailModel.Freight}} 积分 <text style='float: right;'>月兑：{{producetDetailModel.SoldNum}} 件</text></view>
+
+                    <view class='product_detail_bottom_price_container'>露安适服务保障</view>
+                </view>
+
+                <view class='product_detail_bottom_container_Large_caver'></view>
+
+                <view class='product_detail_bottom_container_select_Amount_Scale' bindtap='userSelectProductAmountOrScale'>
+                    <text>请选择规格、数量</text>
+                    <image class='product_detail_bottom_container_select_Amount_image' src='../../../images/Statistics_ic_next.png'></image>
+                </view>
+
+            </view>
+
+
+            
+        </view>
+    </scroll-view>
+
+
+    <view class='product_bottom_container'>
+        <view class='product_bottom_left_actionView'>
+            <block wx:for="{{bottomActionIndexArray}}" wx:key="*this" wx:for-index="idx">
+                  <view class='product_bottom_left_itemContainer'>
+                        <text>{{item}}</text>
+                  </view>
+            </block>
+        </view>
+        <view class='product_bottom_right_actionView'>加入购物车</view>
+    </view>
+</view>

@@ -34,11 +34,23 @@ const apiForCommunityPage = (params) => wxRequest(params, host + '/api/cms/lelch
 const apiForCategory = (params) => wxRequest(params, host + '/api/shop/category/getCategoryDown?time=' + params.query.date)
 
 // 分类获取商品列表
-const apiForCategoryProduct = (params) => wxRequest(params, host + '/api/shop/prdoucts/getProductsCategoryPage?time=' + params.query.date)
+const apiForCategoryProduct = (params) => wxRequest(params, host + '/api/shop/category/getCategoryByID?time=' + params.query.date)
+
+// 所有产品获取商品列表
+const apiForCategoryProductList = (params) => wxRequest(params, host + '/api/shop/prdoucts/getProductsCategoryPage?time=' + params.query.date)
+
+// 获取商品详情数据
+const apiForCategoryProductDetail = (params) => wxRequest(params, host + '/api/shop/prdouct/getPrdouctByID?time=' + params.query.date)
+
+// 获取搜索相关商品
+const apiForUserSearchProductList = (params) => wxRequest(params, host + '/api/shop/prdoucts/getPrdouctsPage?time=' + params.query.date)
 
 module.exports = {
   getVolById,
   apiForCommunityPage,
   apiForCategory,
-  apiForCategoryProduct
+  apiForCategoryProduct,
+  apiForCategoryProductDetail,
+  apiForCategoryProductList,
+  apiForUserSearchProductList
 }

@@ -85,10 +85,22 @@ Page({
     })
   },
   /**
+   * 用户选择分类非所有产品类别时响应
+   */
+  userSelectProductSerialAction : function(e){
+    let model = e.currentTarget.dataset.model;
+    let index = '100'
+    wx.navigateTo({
+      url: 'ProductListPage/ClassifyProductListPage?index=' + index +'&CategoryID='+model.ID,
+    })
+  },
+  /**
    * 用户搜索事件
    */
   userSearchAction: function(e){
-    
+    wx.navigateTo({
+      url: 'ProductSearch/ProductSearch',
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

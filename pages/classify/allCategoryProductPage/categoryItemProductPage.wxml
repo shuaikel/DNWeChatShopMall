@@ -11,7 +11,7 @@
                   <text class='product_item_Name'>{{item.Name}}</text>
                   <view class='product_item_Container'>
                       <block wx:for="{{item.Childs}}" wx:key="{{ID}}" wx:for-index="idx">
-                          <view class='product_item_View'>
+                          <view class='product_item_View' bindtap='userSelectProductSerialAction' data-model='{{item}}'>
                               <image class='product_item_image' src='{{item.Picture}}' mode='aspectFit'></image>
                               <text class='centerText'>{{item.Name}}</text>
                           </view>

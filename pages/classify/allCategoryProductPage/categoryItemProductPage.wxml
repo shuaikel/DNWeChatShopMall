@@ -2,7 +2,7 @@
 
 <template name="categoryItemProductPage">
     <view>
-        <image src="{{bannerImg}}" class='productImage' mode='scaleToFill'></image>
+        <image src="{{bannerImg}}" class='productImage' mode='scaleToFill' bindtap='userTapBannerImageViewAction' data-model='{{item}}'></image>
     </view>
 
     <view class='allCategoryChildContainerView' style='background:white'>

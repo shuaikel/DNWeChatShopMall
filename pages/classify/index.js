@@ -103,6 +103,16 @@ Page({
     })
   },
   /**
+   * 用户点击banner
+   */
+  userTapBannerImageViewAction : function(e){
+    let index = this.data.currentSelectCategory
+    wx.navigateTo({
+      url: 'ProductListPage/ClassifyProductListPage?index=' + '100' + '&CategoryID=' + index.toString(),
+    })
+
+  },
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {

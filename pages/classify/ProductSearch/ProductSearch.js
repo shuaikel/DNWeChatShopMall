@@ -50,6 +50,11 @@ Page({
   userSearchWithParam : function(e){
   },
 
+  // 文本框输入结束
+  bindconfirmAction : function(e){
+    debugger
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

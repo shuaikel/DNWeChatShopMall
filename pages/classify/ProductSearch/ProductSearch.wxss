@@ -9,6 +9,12 @@
   align-items: center;
 }
 
+.category_search_Container_icon{
+  margin-left: 10px;
+  width:20px;
+  height:20px;
+  align-self: center;
+}
 
  .product_search_Input_Container{
   height: 45px;
@@ -24,8 +30,22 @@
   margin-left: 10px;
   height: 30px;
   align-self: center;
-  background: palegoldenrod;
+  background: #f3f3f3;
+  display: flex;
+  align-items: center;
   width: 80%;
+  border: 1px solid;
+  border-color: #f3f3f3;
+  border-radius: 15px;
+}
+
+.product_search_inputClass{
+  margin-left: 10px;
+  height: 30px;
+  align-self: center;
+  width: calc(100% - 50px);
+  font-weight: lighter;
+  color: #333333;
 }
 
 .product_search_view{

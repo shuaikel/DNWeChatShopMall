@@ -188,7 +188,7 @@ Page({
         date : date
       },
       success:(res)=>{
-        debugger
+        
         if (res.data.Data.length > 0){
            // 
           pageIndex = pageIndex + 1;

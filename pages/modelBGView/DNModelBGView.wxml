@@ -1,0 +1,5 @@
+
+<template name="DNModelBGViewXML">
+  <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}" bindtap='hiddenModelAction'></view>
+</template>
+

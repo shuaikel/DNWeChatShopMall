@@ -1,0 +1,42 @@
+
+
+<template name="UserSelectProductScalePage">
+    <view class="modalDlg" wx:if="{{showModal}}">
+        <view class='bottomActionView_TopView'>
+              <image class='bottomActionView_IconView' src='{{item.Picture}}' mode='scaleToFill'></image>
+              <view class='bottomActionView_rightContainer'>
+
+                  <view class='product_detail_bottom_price_container' style='margin-top: 0px;'>售价：<text class='product_detail_bottom_price_Score'>{{item.PointPrice}}</text> 积分</view>
+
+                  <view class='product_detail_bottom_price_container' style='margin-top: 0px;'>{{userSelectProductScaleStr.length > 0 ? "您已选择"+userSelectProductScaleStr : "请选择规格数量"}}</view>
+
+              </view>
+        </view>
+
+        <view class='bottomActionView_ScaleView'>
+            <text class='bottomActionView_TextIndexView'>规格：</text>
+            <view class='bottomActionView_StandardView'>
+                <block wx:for="{{item.Standard}}" wx:key="{{ID}}" wx:for-index="idx">
+
+                      <view class='bottomActionView_StandardItemView' bindtap='userSelectProcuctScale' data-itemModel='{{item}}' data-index='{{idx}}' style='background:{{idx ==userSelectProductScaleIndex ?indexSelectBGColor: indexBGColor}};color:{{idx ==userSelectProductScaleIndex ?indexSelectTitleColor: indexDefaultColor}}'>{{'  '+item.Size  + '  '}}</view>
+                </block>
+            </view>
+        </view>
+
+
+        <view class='bottomActionView_AmountView'>
+            <text class='bottomActionView_TextIndexView'>数量：</text>
+
+             <view class='bottomActionView_AmountActionView'>
+                  <block wx:for="{{['-',userSelectProductAmount,'+']}}" wx:key="*this" wx:for-index="idx">
+                        <view class='bottomActionView_AmountActionItemView' bindtap='userAddOrReduceProductAmount' data-index='{{idx}}'>
+                              {{item}}
+                        </view>
+                        <view class='bottomActionView_AmountActionCaverView' wx:if="{{idx != 2}}"></view>
+                  </block>
+             </view>
+        </view>
+
+        <view class='bottomActionView_Container' bindtap='userAddProductToCart' data-itemModel='{{item}}'>加入购物车</view>
+    </view>
+</template>

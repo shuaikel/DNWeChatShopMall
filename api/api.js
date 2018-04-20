@@ -45,6 +45,9 @@ const apiForCategoryProductDetail = (params) => wxRequest(params, host + '/api/s
 // 获取搜索相关商品
 const apiForUserSearchProductList = (params) => wxRequest(params, host + '/api/shop/prdoucts/getPrdouctsPage?time=' + params.query.date)
 
+// 获取评价列表
+const apiForProductEvaluateList = (params) => wxRequest(params, host + '/api/shop/productEvaluate/getProductIDEvaluatePage?time=' + params.query.date)
+
 module.exports = {
   getVolById,
   apiForCommunityPage,
@@ -52,5 +55,6 @@ module.exports = {
   apiForCategoryProduct,
   apiForCategoryProductDetail,
   apiForCategoryProductList,
-  apiForUserSearchProductList
+  apiForUserSearchProductList,
+  apiForProductEvaluateList
 }

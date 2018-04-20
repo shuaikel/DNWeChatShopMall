@@ -83,6 +83,7 @@
   width: 100%;
   height: calc(100% - 35px);
   background: white;
+  top: 0;
 }
 
  .product_detail_bottom_container_caver{
@@ -176,4 +177,154 @@
   margin-left: 20px;
   align-self: center;
 
+}
+
+.mask{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 9000;
+    opacity: 0.7;
+}
+
+.modalDlg{
+    width: 100%;
+    height: 275px;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottomActionView_Container{
+  width: 100%;
+  background: #2f88ff;
+  height: 45px;
+  font-size: 14px;
+  line-height: 45px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  color: white;
+}
+.bottomActionView_TopView{
+  height: 60px;
+  width: 100%;
+  flex-wrap: nowrap;
+  display: flex;
+}
+.bottomActionView_AmountView{
+  position: fixed;
+  bottom: 45px;
+  height: 70px;
+  width: 100%;
+}
+
+.bottomActionView_ScaleView{
+  position: fixed;
+  bottom: 115px;
+  height: 100px;
+  width: 100%;
+}
+
+.bottomActionView_IconView{
+  width: 60px;
+  height: 60px;
+  margin-top: -8px;
+  margin-left: 15px;
+  border-radius: 4px;
+  background: white
+}
+
+.bottomActionView_rightContainer{
+  margin-left: 10px;
+  align-self: center;
+  height: 40px;
+  width: calc(100% - 85px);
+}
+
+.bottomActionView_TextIndexView{
+  margin-left: 10px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  color: #333333;
+  text-align: left;
+  font-weight: lighter;
+}
+
+.bottomActionView_StandardView{
+  margin-top: 0;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bottomActionView_StandardItemView{
+    /* border: 0px solid; */
+    /* border-color: #2f88ff; */
+    /* width: 40px; */
+    height: 20px;
+    margin-top: 10px;
+    background: #f3f3f3;
+    color: #333333;
+    text-align: center;
+    margin-left: 20px;
+    border-radius: 10px;
+    font-size: 10px;
+    min-width: 40px;
+    line-height: 20px;
+}
+
+.bottomActionView_AmountActionView{
+  height: 30px;
+  width: 90px;
+  background: white;
+  margin-top: 0;
+  margin-left: 10px;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: #dae2e3;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  text-align: center;
+}
+
+.bottomActionView_AmountActionItemView{
+  flex: 1;
+  background:rgba(255,255,255,0.0);
+  height: 30px;
+  text-align: center;
+  color: #333333;
+  font-weight: lighter;
+}
+
+.bottomActionView_AmountActionCaverView{
+  width: 1px;
+  background: #dae2e3;
+  height: 30px;
+  margin-left: 0px;
+}
+
+.product_detail_webViewContainer{
+  background: #f3f3f3;  
+  position: absolute;
+  top: 35px;
+  left: 0;
+  right: 0;
+}
+
+.UserSelectProductEvaluteListTopView{
+  height: 35px;
+  margin-top: 0px;
+  width: 100%;
+  background: palevioletred;
 }

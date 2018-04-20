@@ -1,13 +1,35 @@
 
 <view class='product_main_container'>
+
+        <import src = "../../modelBGView/DNModelBGView.wxml" />
+        <template is="DNModelBGViewXML" data="{{showModal:showModal}}"/>
+
+        <import src ="UserSelectProductScalePage/UserSelectProductScalePage.wxml" />
+        <template is="UserSelectProductScalePage" data="{{showModal : showModal,item:producetDetailModel,userSelectProductScaleStr:userSelectProductScaleStr,userSelectProductScaleIndex:userSelectProductScaleIndex,indexSelectBGColor:indexSelectBGColor,indexBGColor:indexBGColor,indexSelectTitleColor:indexSelectTitleColor,indexDefaultColor:indexDefaultColor,userSelectProductAmount:userSelectProductAmount}}"/>
+
     <scroll-view class="product_scrollView" scroll-y='true'>
+
         <view class='product_detail_top_segmentContainer'>
             <view class='product_detail_top_segment'>
                 <block wx:for="{{segmentSortArray}}" wx:key="*this" wx:for-index="idx">
-                    <view class='product_detail_top_segment_Item'>{{item}}</view>
+                    <view class='product_detail_top_segment_Item' style='color:{{idx==userSelectCheckIndex ? indexSelectBGColor : indexDefaultColor}}' bindtap='userSelectCheckIndexChangeAction' data-index='{{idx}}'>{{item}}</view>
                 </block>
             </view>
         </view>
+
+
+        <view class='product_detail_webViewContainer' style='height: {{userSelectCheckIndex == 1 ? userSelectContainerHeight:0}};'>
+              <import src="../../../wxParse/wxParse.wxml"/> 
+<view class="wxParse">
+    <template is="wxParse" data="{{wxParseData:productDetailH5Data.nodes}}"/>
+</view>
+        </view>
+
+        <view class='product_detail_webViewContainer' style='height: {{userSelectCheckIndex == 2 ? userSelectContainerHeight:0}};'>
+            <import src="UserSelectProductEvalutePage/UserSelectProductEvalutePage.wxml" />
+            <template is="UserSelectProductEvalutePage" data="{{ UserSelectProductEvaluteLists}}"></template>
+        </view>
+
 
         <view class='product_detail_bottom_container'>
             <view class='product_detail_bottom_container_caver'></view>

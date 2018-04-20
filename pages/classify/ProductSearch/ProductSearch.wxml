@@ -4,7 +4,7 @@
       <view class='product_search_Input_Container'>
             <view class='product_search_input_Container_left'>
                 <image src='../../../images/login_btn_see.png' class='category_search_Container_icon'></image>
-                <input  bindconfirm="bindconfirmAction" placeholder="请输入商品" confirm-type="search" type="text" class='product_search_inputClass'/>
+                <input  bindinput="bindinputAction" placeholder="请输入商品" confirm-type="search" type="text" class='product_search_inputClass' value="{{userSearchStr}}"/>
             </view>
             <view class='product_search_view' bindtap='userSearchWithParam'>搜索</view>
       </view>
@@ -14,7 +14,7 @@
       <view class='line_caver'></view>
 
       <block wx:for="{{recommandArr}}" wx:key="*this" wx:for-index="idx">
-            <view class='product_recommand_search_container' style='background: white'>{{item}}
+            <view class='product_recommand_search_container' style='background: white' bindtap='userSelectRecommandSearch' data-searchinfo='{{item}}'>{{item}}
             </view>
             <view class='line_caver'></view>
       </block>

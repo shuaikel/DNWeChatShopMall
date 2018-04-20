@@ -1,0 +1,7 @@
+
+
+<template name = "UserSelectProductEvalutePage">
+      <scroll-view class='product_scrollView'>
+            <view class='UserSelectProductEvaluteListTopView'></view>
+      </scroll-view>
+</template>

@@ -9,7 +9,8 @@ Page({
   data: {
     recommandArr : ['面膜',"手霜",'纸尿裤','卫生巾','沐浴露'],
     PageIndex : 1,
-    ProductLists : []
+    ProductLists : [],
+    userSearchStr : ''
   },
   /**
    * 加载商品数据
@@ -17,6 +18,7 @@ Page({
   loadDataAction :function(e){
     var date = new Date().getTime()
     var PageIndex = this.data.PageIndex
+    var Name = this.data.userSearchStr
     api.apiForUserSearchProductList({
       method:'POST',
       query:{
@@ -30,7 +32,7 @@ Page({
         CategoryID: '',
         Sortkey: 0,
         SeasonWeight: 0,
-        Name: '',
+        Name: Name,
       },
       success:(res)=>{
         
@@ -48,11 +50,33 @@ Page({
   },
  // 用户搜索事件 
   userSearchWithParam : function(e){
+    var that = this;
+  
+    this.setData({
+      PageIndex : 1,
+      ProductLists : []
+    },()=>{
+      that.loadDataAction();
+    })
   },
 
-  // 文本框输入结束
-  bindconfirmAction : function(e){
-    debugger
+  // 文本框输入
+  bindinputAction : function(e){
+    this.setData({ userSearchStr: e.detail.value});
+  },
+  // 用户选择推荐搜索
+  userSelectRecommandSearch:function(e){
+    var that = this
+    this.setData({ userSearchStr: e.currentTarget.dataset.searchinfo },()=>{
+      that.userSearchWithParam()
+    });
+  },
+  // 用户查看商品详情
+  userCheckProductDetailAction : function(e){
+    var productID = e.currentTarget.dataset.itemmodel.ID
+    wx.navigateTo({
+      url: '../ProductDetailPage/ProductDetailPage?ID=' + productID,
+    })
   },
 
   /**

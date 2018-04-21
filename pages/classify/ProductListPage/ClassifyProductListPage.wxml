@@ -1,7 +1,7 @@
 
 
 
-<scroll-view class='ClassifyProductListPage_ContainerView' scroll-y='true' enable-back-to-top='true' bindscrolltolower='loadMoreAction'>
+<scroll-view class='ClassifyProductListPage_ContainerView' scroll-y='true' scroll-x = 'false'  bindscrolltolower='bindscrolltolowerAction'>
       <view class='ClassifyProductListPage_TopView'>
             <block wx:for="{{searchKeys}}" wx:key="*this" wx:for-index="idx">
                 <text class='ClassifyProductListPage_TopText' style='color:{{idx==sortIndex?selectColor:defaultColor}}' bindtap='userChangeSortAction' data-sortIndex='{{idx}}'>{{item}}</text>

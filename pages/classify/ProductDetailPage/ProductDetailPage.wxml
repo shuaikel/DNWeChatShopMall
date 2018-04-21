@@ -7,7 +7,7 @@
         <import src ="UserSelectProductScalePage/UserSelectProductScalePage.wxml" />
         <template is="UserSelectProductScalePage" data="{{showModal : showModal,item:producetDetailModel,userSelectProductScaleStr:userSelectProductScaleStr,userSelectProductScaleIndex:userSelectProductScaleIndex,indexSelectBGColor:indexSelectBGColor,indexBGColor:indexBGColor,indexSelectTitleColor:indexSelectTitleColor,indexDefaultColor:indexDefaultColor,userSelectProductAmount:userSelectProductAmount}}"/>
 
-    <scroll-view class="product_scrollView" scroll-y='true'>
+    <scroll-view class="product_scrollView" scroll-y='true' scroll-x="false" >
 
         <view class='product_detail_top_segmentContainer'>
             <view class='product_detail_top_segment'>
@@ -18,20 +18,20 @@
         </view>
 
 
-        <view class='product_detail_webViewContainer' style='height: {{userSelectCheckIndex == 1 ? userSelectContainerHeight:0}};'>
+        <view class='product_detail_webViewContainer' wx:if="{{userSelectCheckIndex == 1}}">
               <import src="../../../wxParse/wxParse.wxml"/> 
 <view class="wxParse">
     <template is="wxParse" data="{{wxParseData:productDetailH5Data.nodes}}"/>
 </view>
         </view>
 
-        <view class='product_detail_webViewContainer' style='height: {{userSelectCheckIndex == 2 ? userSelectContainerHeight:0}};'>
+        <view class='product_detail_webViewContainer' wx:if="{{userSelectCheckIndex == 2}}">
             <import src="UserSelectProductEvalutePage/UserSelectProductEvalutePage.wxml" />
-            <template is="UserSelectProductEvalutePage" data="{{ UserSelectProductEvaluteLists}}"></template>
+            <template is="UserSelectProductEvalutePage" data="{{ UserSelectProductEvaluteSumInfo:UserSelectProductEvaluteSumInfo,userSelectProductEvaluteSumInfoIndexArr:userSelectProductEvaluteSumInfoIndexArr,userSelectProductEvaluteSumInfoCheckType:userSelectProductEvaluteSumInfoCheckType,indexSelectBGColor:indexSelectBGColor,indexDefaultColor:indexDefaultColor,UserSelectProductEvaluteLists:UserSelectProductEvaluteLists}}"></template>
         </view>
 
 
-        <view class='product_detail_bottom_container'>
+        <view class='product_detail_bottom_container' wx:if="{{userSelectCheckIndex == 0}}">
             <view class='product_detail_bottom_container_caver'></view>
             <image class='product_detail_bottom_container_image' src='{{producetDetailModel.Picture}}'></image>
             <view class='product_detail_bottom_container_caver'></view>

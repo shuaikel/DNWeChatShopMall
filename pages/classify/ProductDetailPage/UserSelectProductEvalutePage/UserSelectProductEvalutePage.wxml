@@ -2,6 +2,20 @@
 
 <template name = "UserSelectProductEvalutePage">
       <scroll-view class='product_scrollView'>
-            <view class='UserSelectProductEvaluteListTopView'></view>
+            <view class='UserSelectProductEvaluteListTopView'>
+                <block wx:for="{{userSelectProductEvaluteSumInfoIndexArr}}" wx:key="*this" wx:for-index="idx">
+                      <view class='SumInfoIndexView' style='color:{{userSelectProductEvaluteSumInfoCheckType == idx ? indexSelectBGColor:indexDefaultColor}}' bindtap='userSelectProductEvaluteSumInfoCheckAction' data-index='{{idx}}'>
+                      <view>{{item}}</view>
+                      <view class='SumInfoIndexViewSumInfo'>{{idx==0?UserSelectProductEvaluteSumInfo['CommentSum']:idx==1?UserSelectProductEvaluteSumInfo['PraiseSum']:idx==2?UserSelectProductEvaluteSumInfo['InCommentSum']:idx==3?UserSelectProductEvaluteSumInfo['BadCommentSum']:UserSelectProductEvaluteSumInfo['MapCommentSum']}}</view>
+                    </view> 
+                </block>
+            </view>
+
+
+            <view class='productEvaluteItemContainerView'>
+                  <import src="UserSelectProductEvaluteItemTemplate/UserSelectProductEvaluteItemTemplate" />
+                  <template is="UserSelectProductEvaluteItemTemplate" data="{{item:UserSelectProductEvaluteLists}}"/>
+            </view>
+
       </scroll-view>
 </template>

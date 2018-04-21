@@ -10,7 +10,7 @@
 </swiper> -->
 
 
-<scroll-view class='community-swiper' scroll-y="true">
+<scroll-view class='community-swiper' scroll-y="true" bindscrolltolower="bindscrolltolowerAction">
       <block wx:for="{{BannerList}}" wx:key="{{Id}}" wx:for-index="idx">
       <view class="swiper-item-container">
         <import src = "activityIndexPage/activityItem.wxml" />

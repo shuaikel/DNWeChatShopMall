@@ -1,0 +1,20 @@
+
+
+
+<template name="UserSelectProductEvaluteItemTemplate">
+    <block wx:for="{{item}}" wx:key="{{ID}}" wx:for-index="idx">
+      <view class='EvaluteItemTemplate_containerView'>
+            <image class='EvaluteItemTemplate_IconView' src='{{item.Avatar}}'></image>
+
+
+            <view class='EvaluteItemTemplate_topSumView'></view>
+
+             <view class='EvaluteItemTemplate_timeView ,commonTextStyle'>{{item.ReviewDate}}</view>
+
+             <view class='EvaluteItemTemplate_TextView'>{{item.Message}}</view>
+
+             <view class='EvaluteItemTemplate_bottomView'></view>
+      </view>
+    </block>
+
+</template>

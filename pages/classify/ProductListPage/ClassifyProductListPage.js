@@ -102,7 +102,7 @@ Page({
   /**
    * 加载更多数据
    */
-  loadMoreAction : function(e){
+  bindscrolltolowerAction : function(e){
     this.userGetCategoryProductByParam(this.data.index,true)
   },
   /**

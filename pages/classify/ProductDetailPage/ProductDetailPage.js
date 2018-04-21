@@ -27,7 +27,10 @@ Page({
     userSelectCheckIndex : 0, // 用户现在商品，详情，评价指引
     userSelectContainerHeight : '100%',
     productDetailH5Data : '',
-    UserSelectProductEvaluteLists : []
+    UserSelectProductEvaluteLists : [],
+    UserSelectProductEvaluteSumInfo : {},
+    userSelectProductEvaluteSumInfoIndexArr : ['全部','好评','中评','差评','有图'],
+    userSelectProductEvaluteSumInfoCheckType : 0
   },
   
 // 显示弹框View
@@ -76,6 +79,25 @@ Page({
   onLoad: function (options) {
     this.userGetProductDetailAction(options) // 加载商品信息
     this.getProductEvaluteListAction()   // 加载商品评价列表
+    this.userGetProductEvaluteSumInfo(options) // 加载商品评价列表
+  },
+
+  // 加载商品评价统计数据
+  userGetProductEvaluteSumInfo : function(e){
+    var productID = e.ID
+    var date = new Date().getTime()
+    var that = this
+    api.apiForProductEvaluateSumInfo({
+      query:{
+        date : date,
+        productID: productID
+      },
+      success : (res)=>{
+        if(res.data.Code == 0){
+          this.setData({ UserSelectProductEvaluteSumInfo : res.data.Data})
+        }
+      }
+    })
   },
 
   // 加载商品详情
@@ -94,9 +116,11 @@ Page({
       },
       success : (res) =>{
         if(res.data.Code == 0){
+          let replaceNodeStr = res.data.Data.FullDescription
+          while (replaceNodeStr.indexOf('_.webp') != -1) { replaceNodeStr = replaceNodeStr.replace('_.webp', '') }
           that.setData({ 
             producetDetailModel: res.data.Data, 
-            productDetailH5Data: res.data.Data.FullDescription},()=>{
+            productDetailH5Data: replaceNodeStr},()=>{
               WxParse.wxParse('productDetailH5Data', 'html', that.data.productDetailH5Data, that, 5);
           })
         }
@@ -203,6 +227,13 @@ Page({
         }
       }
     })
+  },
+
+  userSelectProductEvaluteSumInfoCheckAction :function(e){
+    let index = e.currentTarget.dataset.index
+    if (index != this.data.userSelectProductEvaluteSumInfoCheckType){
+      this.setData({ userSelectProductEvaluteSumInfoCheckType : index})
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

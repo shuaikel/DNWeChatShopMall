@@ -228,11 +228,17 @@ Page({
       }
     })
   },
-
+  //  用户选择全部，好评，中评，差评，有图等
   userSelectProductEvaluteSumInfoCheckAction :function(e){
     let index = e.currentTarget.dataset.index
     if (index != this.data.userSelectProductEvaluteSumInfoCheckType){
       this.setData({ userSelectProductEvaluteSumInfoCheckType : index})
+    }
+  },
+// 加载更多评论数据
+  productEvaluteLoadMoreAction : function(e){
+    if (this.data.userSelectCheckIndex == 2){
+      this.getProductEvaluteListAction(e, true)
     }
   },
   /**

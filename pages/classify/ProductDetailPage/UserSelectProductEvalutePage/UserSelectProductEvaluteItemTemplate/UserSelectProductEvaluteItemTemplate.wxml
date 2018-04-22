@@ -7,13 +7,33 @@
             <image class='EvaluteItemTemplate_IconView' src='{{item.Avatar}}'></image>
 
 
-            <view class='EvaluteItemTemplate_topSumView'></view>
+            <view class='EvaluteItemTemplate_topSumView'>
+
+                <view class='EvaluteItemTemplateNickName,commonTextStyle'>
+                    <text>{{item.NickName}}</text>
+                </view>
+
+                <view class='EvaluteItemTemplateTime,commonTextStyle'>
+                    <text >{{item.ReviewDate}}</text>
+                </view >
+
+                
+                 <view class='EvaluteItemTemplateStar,commonTextStyle'>
+                    <text>{{item.NickName}}</text>
+                </view>
+            </view>
+
+             
 
              <view class='EvaluteItemTemplate_timeView ,commonTextStyle'>{{item.ReviewDate}}</view>
 
              <view class='EvaluteItemTemplate_TextView'>{{item.Message}}</view>
 
-             <view class='EvaluteItemTemplate_bottomView'></view>
+             <view class='EvaluteItemTemplate_bottomView'>
+                <view class='EvaluteItemTemplate_scale_TextView'>规格：{{item.Size}}</view>
+
+                <view class='EvaluteItemTemplate_buyDate_TextView'>兑换日期：{{item.BuyDate}}</view>
+             </view>
       </view>
     </block>
 

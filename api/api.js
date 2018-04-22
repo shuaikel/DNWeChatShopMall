@@ -51,6 +51,9 @@ const apiForProductEvaluateList = (params) => wxRequest(params, host + '/api/sho
 // 获取评价统计数据
 const apiForProductEvaluateSumInfo = (params) => wxRequest(params, host + '/api/shop/productEvaluate/getCommentParameter?product=' + params.query.productID+'&time='+params.query.date)
 
+// 首页填充数据
+const apiForMainPageDataSumInfo = (params) => wxRequest(params, host + '/api/cms/lelch/homePage?time=' + params.query.date)
+
 module.exports = {
   getVolById,
   apiForCommunityPage,
@@ -60,5 +63,6 @@ module.exports = {
   apiForCategoryProductList,
   apiForUserSearchProductList,
   apiForProductEvaluateList,
-  apiForProductEvaluateSumInfo
+  apiForProductEvaluateSumInfo,
+  apiForMainPageDataSumInfo
 }

@@ -8,7 +8,7 @@
 
 .product_scrollView{
   width: 100%;
-  height: calc(100% - 45px);
+  height: calc(100%);
   background: #f3f3f3;
   display: flex;
   justify-content: center;
@@ -152,23 +152,23 @@
 .product_detail_bottom_container_Large_caver{
   margin-top: 0;
   height: 10px;
-  margin-left: -10px;
+  margin-left: 0px;
   background: #f3f3f3;
-  width: calc(100% + 20px);
+  width: calc(100%);
 }
 
 .product_detail_bottom_container_select_Amount_Scale{
   margin-left: 0;
   width: 100%;
-  min-height: 16%;
+  height: 40px;
   font-size: 12px;
   font-weight: lighter;
   text-align: left;
   color: #666666;
-  /* display: flex; */
   flex-wrap: nowrap;
   display: inline-block;
   align-items: center;
+  line-height: 40px;
 }
 
 .product_detail_bottom_container_select_Amount_image{
@@ -177,7 +177,7 @@
   float: right;
   margin-left: 20px;
   align-self: center;
-
+  margin-top: 14px;
 }
 
 .mask{
@@ -350,11 +350,15 @@
 
 .productEvaluteItemContainerView{
   width: 100%;
-  position: fixed;
-  bottom: 0;
+  /* position: fixed; */
+  /* bottom: 0;
   left: 0;
-  top: 70px;
-  background: pink;
+  top: 70px; */
+  background: #f3f3f3;
+
+  margin-top: 0;
+  margin-left: 0;
+  height: 100%;
 }
 
 .UserSelectProductEvaluteListTopView_caver{
@@ -365,7 +369,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  background: orange;
+  background: white;
   margin-top: 10px;
 }
 
@@ -374,31 +378,29 @@
   height: 60px;
   float: left;
   margin-top: 10px;
-  background: rebeccapurple;
+  background: white;
   border-radius: 30px;
   margin-left: 10px;
 }
 
 .EvaluteItemTemplate_topSumView{
-  display: flex;
-  float: left;
   height: 40px;
   margin-right: 10px;
-  background: darkblue;
+  background: white;
   margin-left: 20px;
   margin-top: 20px;
   width: calc(100% - 100px);
+  flex-wrap: nowrap;
 }
 
 .EvaluteItemTemplate_timeView{
   margin-top: 10px;
-  background: khaki;
-  height: 20px;
-  width: calc(100%-20px);
+  background: white;
+  height: 14px;
+  width: calc(100% - 20px);  
   text-align: right;
-  line-height: 20px;
+  line-height: 14px;
   margin-left: 10px;
-  float: right;
 }
 
 .commonTextStyle{
@@ -410,19 +412,73 @@
 .EvaluteItemTemplate_TextView{
   display: flex;
   margin-top: 10px;
-  background: green;
-  width: 100%;
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  text-align: left;
+  float: right;
 
   font-size: 12px;
   line-height: 14px;
-  text-align: left;
+  
   color: #333333;
 }
 
 .EvaluteItemTemplate_bottomView{
-  display: flex;
   margin-top: 10px;
-  background: coral;
-  height: 50px;
+  height: 40px;
   width: 100%;
+}
+
+.EvaluteItemTemplateNickName{
+  line-height: 14px;
+  height: 14px;
+  text-align: left;
+  margin-top: 0px; 
+  background: white;
+}
+
+ .EvaluteItemTemplateTime{
+  display: flex; 
+  height: 14px;
+  line-height: 14px;
+  background: white;
+  margin-right: 0px;
+  float: right;
+  color: #333333;
+  align-self: center;
+  text-align: right;
+} 
+
+.EvaluteItemTemplateStar{
+  margin-bottom: 4px;
+  height: 14px;
+  line-height: 14px;
+  background: red;
+  margin-left: 0;
+  min-width: 100px;
+  margin-top: 10px;
+}
+
+.EvaluteItemTemplate_scale_TextView{
+  margin-top: 0px;
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  text-align: left;
+
+  font-size: 12px;
+  line-height: 14px;
+  height: 14px;
+  color: #333333;
+}
+
+.EvaluteItemTemplate_buyDate_TextView{
+  margin-top: 6px;
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  text-align: left;
+
+  font-size: 12px;
+  line-height: 14px;
+  height: 14px;
+  color: #333333;
 }

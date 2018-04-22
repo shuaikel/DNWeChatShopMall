@@ -1,7 +1,8 @@
 
 
 <template name = "UserSelectProductEvalutePage">
-      <scroll-view class='product_scrollView'>
+      <scroll-view class='product_scrollView' bindscrolltolower="productEvaluteLoadMoreAction" scroll-y='true'>
+
             <view class='UserSelectProductEvaluteListTopView'>
                 <block wx:for="{{userSelectProductEvaluteSumInfoIndexArr}}" wx:key="*this" wx:for-index="idx">
                       <view class='SumInfoIndexView' style='color:{{userSelectProductEvaluteSumInfoCheckType == idx ? indexSelectBGColor:indexDefaultColor}}' bindtap='userSelectProductEvaluteSumInfoCheckAction' data-index='{{idx}}'>

@@ -7,7 +7,7 @@
         <import src ="UserSelectProductScalePage/UserSelectProductScalePage.wxml" />
         <template is="UserSelectProductScalePage" data="{{showModal : showModal,item:producetDetailModel,userSelectProductScaleStr:userSelectProductScaleStr,userSelectProductScaleIndex:userSelectProductScaleIndex,indexSelectBGColor:indexSelectBGColor,indexBGColor:indexBGColor,indexSelectTitleColor:indexSelectTitleColor,indexDefaultColor:indexDefaultColor,userSelectProductAmount:userSelectProductAmount}}"/>
 
-    <scroll-view class="product_scrollView" scroll-y='true' scroll-x="false" >
+    <scroll-view class="product_scrollView" scroll-y='true' scroll-x="false" bindscrolltolower="productEvaluteLoadMoreAction">
 
         <view class='product_detail_top_segmentContainer'>
             <view class='product_detail_top_segment'>
@@ -59,13 +59,7 @@
 
             </view>
 
-
-            
-        </view>
-    </scroll-view>
-
-
-    <view class='product_bottom_container'>
+            <view class='product_bottom_container'>
         <view class='product_bottom_left_actionView'>
             <block wx:for="{{bottomActionIndexArray}}" wx:key="*this" wx:for-index="idx">
                   <view class='product_bottom_left_itemContainer'>
@@ -75,4 +69,10 @@
         </view>
         <view class='product_bottom_right_actionView'>加入购物车</view>
     </view>
+            
+        </view>
+    </scroll-view>
+
+
+
 </view>

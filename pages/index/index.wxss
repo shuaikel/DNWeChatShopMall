@@ -1,21 +1,460 @@
 /**index.wxss**/
-.userinfo {
+
+.shopMallMain_scrollView{
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
+.shopMallMain_HeadView{
+  width: 100%;
+  height: 45px;
+  background: pink;
+  margin-top: 0;
   display: flex;
-  flex-direction: column;
+   /* float: left; */
+  flex-wrap: nowrap; 
+  align-items: center; 
+}
+
+.shopMallMain_HeadCatrgoryView{
+  width: 100%;
+  height: 45px;
+  background: greenyellow;
+  margin-top: 0px;
+  display: flex;
+  float: left;
+}
+
+.shopmall_Main_container{
+  margin-top: 45px;
+  width: 100%;
+}
+
+.shopMallMain_HeadBannerViewSwiper{
+  width: 100%;
+  height: 82.5vw;
+  background: #f3f3f3;
+}
+
+.shopMallMain_HeadBannerImageItem{
+  width: 100%;
+  height: 100%;
+}
+
+.HeadCatrgoryItemView{
+  flex: 1;
+  color: #333333;
+  font-size: 14px;
+  text-align: center;
+  height: 100%;
+  line-height: 45px;
+}
+
+.shopMallMain_TopActionContainer{
+  width: 100%;
+  height: 120px;
+ justify-content: center;
+}
+
+.shopMallMain_TopActionContainer_index{
+  padding-top: 15px;
+  height: 12px;
+  line-height: 12px;
+  font-size: 12px;
+  color: #333333;
+  text-align: center;
+  align-self: center;
+}
+
+.shopMallMain_TopActionItemContainer{
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+  background: white;
+  display: flex;
+  float: left;
+
+}
+
+.caverView{
+  height: 1px;
+  background-color: #dae2e3;
+  width: 100%;
+  margin-top: 10px;
+  float: left;
+}
+
+.shopMallMain_itemActionContainer{
+  flex: 1;
+  height: 100%;
+  background: olive;
+  font-size: 12px;
+  color: #333333;
+  text-align: center;
+  line-height: 50px;
+}
+
+.shopMallMain_TopActionContainer_Seckillindex{
+  height: 12px;
+  line-height: 15px;
+  font-size: 15px;
+  color: #333333;
+  text-align: center;
+  align-self: center;
+}
+
+.shopMallMain_SeckillPage{
+  width: 100%;
+  height: 240px;
+  background: white;
+  margin-top: 20px;
+}
+
+.shopMallMain_TopActionContainer_productContainer{
+  margin-top: 15px;
+  height: 160px;
+  width: 100%;
+
+}
+
+.shopMallMain_TopActionContainer_bg{
+  width: 100%;
+  height: 100%;
+}
+
+.shopMallMain_TopActionContainer_swiper_container{
+  width: 100%;
+  height: 100%;
+   background:rgba(255,255,255,0.0);  
   align-items: center;
+  display: flex; 
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.shopMallMain_TopActionContainer_scrollView{
+    white-space: nowrap; 
+    display: flex;
+    align-self: center;
+    align-items: center;
+    height: 120px;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.shopMallMain_TopActionContainer_itemContainer{
+  margin-right: 20px;
+  width: 90px; 
+  height: 120px; 
+  display: inline-block;
+  align-self: center;
+/*背景图片自适应控件尺寸  */
+  background-repeat:no-repeat; 
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
 }
 
-.usermotto {
-  margin-top: 200px;
+.shopBannerImageSizeToFitStyle{
+  background-repeat:no-repeat; 
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
+  background-color: white;
 }
+
+.shopActivityMarginStyle{
+  margin-left: 10px;
+  border: 1px solid;
+  border-width: 1px;
+  border-color: #dae2e3;
+  margin-right: 0px;
+  width: 100px;
+}
+
+.shopMallMain_ActivityList_itemImage{
+  align-self: center;
+  width: 70%;
+  height: 80px;
+  margin-left: 15%;
+}
+
+.shopMallMain_ActivitList_ItemConatiner{
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 28vw;
+  height: 160px; 
+  display: inline-block;
+  justify-content: center;
+  border: 1px solid;
+  border-width: 1px;
+  border-color: #dae2e3;
+  border-radius: 2px;
+}
+
+.shopMallMain_ActivityList_itemName{
+  font-size: 12px;
+  font-weight: lighter;
+  color: #333333;
+  margin-top: 0;
+  line-height: 12px;
+  height: 40px;
+  white-space: pre-wrap;  
+}
+
+.shopMallMain_ActivityListContainer_scrollView{
+    white-space: nowrap;  
+    display: flex;
+    align-self: center;
+    align-items: center;
+    height: 150px;
+    margin-top: 0px;
+}
+
+.shopMallMainTask_ContainerView{
+  width: 100%;
+  height: 80px;
+  background: wheat;
+  margin-top: 10px;
+
+}
+
+.shopMallMain_HotListProductItemScroll{
+  width: 100%;
+  margin-top: 10px;
+  background: #f3f3f3;
+  min-height: 400px;
+}
+
+.shopMallMain_HotListProductItemContainer{
+  height: 90px;
+  background: white;
+  width: 100%;
+  display: flex;
+  float: left;
+  flex-wrap: wrap;
+}
+
+.shopMallMain_HotListProductItemContainer2{
+  height: 180px;
+  background: white;
+  width: calc(50% - 20px);
+   flex-wrap: wrap; 
+  float: left;
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.shopMallMain_HotListProductItemRankView{
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #2f88ff;
+  line-height: 20px;
+  text-align: center;
+}
+
+.shopMallMain_HotListProductItemIconView{
+  margin-top: 10px;
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
+}
+
+.shopMallMain_HotListProductItemIcon{
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  border-radius: 2px;
+  border-color: #dae2e3;
+}
+
+.shopMallMain_HotListProductItemRankIcon{
+  width: 100%;
+  height: 100%;
+}
+
+.shopMallMain_HotListProductItemNameView{
+  margin-top: 0px;
+  width: 100%;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.shopMallMain_HotListProductItemRightView{
+  margin-top: 10px;
+  width: calc(100% - 110px);
+  height: 60px;
+  margin-left: 10px;
+}
+
+.shopMallMain_HotListProductItemScoreView{
+  margin-top: 20px;
+  width: 100%;
+  height: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #2f88ff;
+}
+
+.shopMallMain_HotListProductItemCaverLine{
+  margin-left: 0px;
+  height: 1px;
+  background: #dae2e3;
+  width: 100%;
+  margin-top: 10px;
+
+}
+
+.shopMallMainBannerpageList_ActionContainer{
+  margin-top: 15px;
+  margin-left: 15px;
+  width: 80px;
+  height: 25px;
+  border-bottom-right-radius: 12.5px;
+  border-top-right-radius: 12.5px;
+  border-color: #2f88ff;
+  border: 1px solid;
+  line-height: 25px;
+  font-size: 12px;
+  text-align: center;
+  color: #2f88ff;
+}
+
+.shopMallMainBannerpageList_Container{
+  height: 90px;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.shopMallMainBannerpageList_Image{
+  width: 100%;
+  height: 70px;
+}
+
+.shopMallMainBannerpageList_itemContainer{
+  margin-left: 10px;
+  width: 155px; 
+  height: 70px; 
+  display: inline-block;
+  align-self: center;
+}
+
+.shopMallMainBannerpageList_Title{
+  width: 100%;
+  height: 15px;
+  line-height: 15px;
+  font-size: 13px;
+  color: #333333;
+  margin-top: 0px;
+  text-align: center;
+}
+
+.shopMallMain_RecommandPage{
+  margin-top: 20px;
+  width: 100%;
+  background: white;
+
+}
+
+.shopMallMain_MainRecommendpageContainer_scrollView{
+  width: 100%;
+}
+
+.shopMallMain_Recommendpage_scrollView{
+  width: 100%;
+  /* white-space: nowrap; 
+  display: flex; */
+  align-self: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+ .shopMallMainRecommendpageList_itemContainer{
+  width: 50vw-40px;
+  white-space: pre-wrap;
+  height: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+} 
+
+.ClassifyProductListPage_item_subContainer{
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 100%;
+  width: 200px;
+}
+
+.shopMallMain_RecommandScrollView{
+  width: 100%;
+  height: 300px;
+  flex-wrap: wrap;
+  display: flex;
+  white-space: pre-wrap;
+  float: left;
+}
+
+.recommand_IconView{
+  width: 100px;
+  height: 120px;
+}
+
+.recommand_ProductName{
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 12px;
+  line-height: 12px;
+  white-space: pre-wrap;
+  color: #333333;
+}
+
+.pageBottomTipView{
+  margin-top: 0px;
+  height: 160px;
+  background: pink;
+  width: 100%;
+}
+
+.mamaSayIcon{
+  flex: 2;
+  height: 45px;
+  background: gray;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.searchContainer{
+  margin-right: 10px;
+  flex: 6;
+  height: 35px;
+  background: chocolate;
+  align-self: center;
+  background: #f3f3f3;
+  border-radius: 17.5px;
+  border: 0px solid;
+  line-height: 35px;
+  font-size: 14px;
+  color: #666666;
+  align-items: center;
+  flex-wrap: nowrap;
+  display: flex;
+}
+
+.scanQRCodeImage{
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 45px;
+  flex: 1;
+  background: cadetblue;
+}
+
+.category_search_Container_icon{
+  margin-left: 10px;
+  width:20px;
+  height:20px;
+  align-self: center;
+}
+

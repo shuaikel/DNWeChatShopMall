@@ -1,13 +1,203 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view>
+
+<scroll-view class='shopMallMain_scrollView' scroll-y="true" enable-back-to-top="true">
+
+<!--搜索  start-->
+      <view class='shopMallMain_HeadView'>
+          <image class='mamaSayIcon'></image>
+          <view class='searchContainer'>
+              <image src='../../images/login_btn_see.png' class='category_search_Container_icon' ></image>
+              <text style='margin-left:10px;'>请选择商品关键字</text>
+          </view>
+          <image class='scanQRCodeImage'></image>
+      </view>
+<!--搜索  end-->
+
+<!--首页  产品类别索引-->
+      <view class='shopMallMain_HeadCatrgoryView'>
+          <block wx:for="{{productCategoryList}}" wx:key="*this" wx:for-index="idx">
+              <text class='HeadCatrgoryItemView' bindtap='userSelectCategoryChangeAction' data-item='{{item}}' data-index='{{idx}}'>{{item.Name}}</text>
+          </block>
+      </view>
+<!--首页  产品类别索引end-->
+
+
+      <view class='shopmall_Main_container' wx:if="{{userSelectCheckCategoryIndex==0}}">
+<!--首页  banner索引-->
+          <swiper class='shopMallMain_HeadBannerViewSwiper' autoplay="true" indicator-dots="true">
+              <block wx:for="{{BannerList}}" wx:key="{{Id}}" wx:for-index="idx">
+                  <swiper-item>
+                      <image src='{{BannerList[idx].Picture}}' class='shopMallMain_HeadBannerImageItem'></image>
+                  </swiper-item>
+              </block>
+          </swiper>
+<!--首页  banner索引end-->
+
+<!--露安适 lelch  -->
+          <view class='shopMallMain_TopActionContainer'>
+                <view class='shopMallMain_TopActionContainer_index'>- 露安适 Lelch -</view>
+                <view class='shopMallMain_TopActionContainer_index' style="padding-top:10px;font-size:14px;">优质露安适  强健薄皮肤</view>
+
+                <view class='shopMallMain_TopActionItemContainer'>
+                      <block wx:for="{{main_actionArray}}" wx:key="*this" wx:for-index="idx">
+                          <view class='shopMallMain_itemActionContainer'>{{item}}</view>
+                      </block>
+                </view>
+
+                <view class='caverView'></view>
+          </view>
+<!--露安适 lelch  end-->
+
+<!--秒杀  -->
+          <view class='shopMallMain_SeckillPage'>
+                <view class='shopMallMain_TopActionContainer_Seckillindex'>秒杀</view>
+                <view class='shopMallMain_TopActionContainer_index'>- Flash sale -</view>
+                <view class='shopMallMain_TopActionContainer_index' style="padding-top:10px;font-size:14px;">秒杀结束，敬请期待</view>
+<!--  -->
+                <view class='shopMallMain_TopActionContainer_productContainer' style="background-image: url('../../images/user_yaoqing_bg_01.png')">
+                    <!-- <image class='shopMallMain_TopActionContainer_bg' src='../../images/user_yaoqing_bg_01.png'></image> -->
+                  <view class='shopMallMain_TopActionContainer_swiper_container'>
+
+                      <scroll-view scroll-x="true" class='shopMallMain_TopActionContainer_scrollView' >
+                      <view style="background: rgba(255,255,255,0.0); width: 200px; height: 100px; display: inline-block;" ></view>
+
+                      <block wx:for="{{SeckillList}}" wx:key="{{ID}}" wx:for-inde="idx">  
+                      <view class='shopMallMain_TopActionContainer_itemContainer' style='background-image: url({{item.Picture}});'>
+
+                      </view>
+                      </block>
+                      </scroll-view>
+                  </view> 
+                </view>
+          </view>
+<!--秒杀  end-->
+
+<!--活动专区  -->
+        <view class='shopMallMain_SeckillPage'>
+              <view class='shopMallMain_TopActionContainer_Seckillindex'>活动专区</view>
+              <view class='shopMallMain_TopActionContainer_index'>- Activity area-</view>
+        <view class='shopMallMain_TopActionContainer_productContainer'>
+
+            <block wx:for="{{ActivityList}}" wx:key="{{ID}}" wx:for-inde="idx">  
+
+              <view class='shopMallMain_TopActionContainer_productContainer,shopBannerImageSizeToFitStyle' style="background-image: url({{item.Picture}})"></view>
+
+              <view class='shopMallMain_TopActionContainer_swiper_container'>
+
+                <import src="../DNScrollView/DNScrollViewComponent.wxml" />
+                <template is="DNScrollViewComponent" data="{{dataSource:item.list}}" />
+
+              </view> 
+            </block>
+<!--做任务  -->
+            <view class='shopMallMainTask_ContainerView'>做任务</view>
+<!--做任务  end-->
+
+<!--热兑排行榜  -->
+            <view class='shopMallMain_SeckillPage'>
+
+              <view class='shopMallMain_TopActionContainer_Seckillindex'>热兑排行榜</view>
+              <view class='shopMallMain_TopActionContainer_index'>- Ranking list -</view>
+              <view class='shopMallMain_TopActionContainer_index' style="padding-top:10px;font-size:14px; color:#2f88ff;">更多></view>
+
+              <scroll-view class='shopMallMain_HotListProductItemScroll'>
+ <!--热兑排行榜  -->
+                  <block wx:for="{{HotList}}" wx:key="{{ID}}" wx:for-index="idx">
+                      <view class='shopMallMain_HotListProductItemContainer'>
+                      <!--排名View  -->
+                          <view class='shopMallMain_HotListProductItemRankView'>
+                              <image class='shopMallMain_HotListProductItemRankIcon' wx:if="{{idx<3}}" src="{{idx==0?'../../images/race_ic_1.png':idx==1?'../../images/race_ic_2.png':'../../images/race_ic_3.png'}}" mode="scaleToFit"></image>
+                              <text wx:if="{{idx>2}}">{{idx+1}}</text>
+                          </view>
+
+                          <view class='shopMallMain_HotListProductItemIconView ,shopBannerImageSizeToFitStyle'>
+                              <image class='shopMallMain_HotListProductItemIcon' src='{{item.Picture}}' mode='scallToFit'></image>
+                          </view>
+
+                          <view class='shopMallMain_HotListProductItemRightView'>
+                                <view class='shopMallMain_HotListProductItemNameView'>{{item.Name}}</view>
+
+                                <view class='shopMallMain_HotListProductItemScoreView'>{{item.PointPrice}}积分</view>
+                          </view>
+
+                      <view class='shopMallMain_HotListProductItemCaverLine'></view>
+                      </view>
+
+                  </block>
+              </scroll-view>
+
+<!--社区专栏  和为你推荐-->
+            <view class='shopMallMain_SeckillPage'>
+<!--社区专栏  -->
+                <view class='shopMallMain_TopActionContainer_Seckillindex'>社区专栏</view>
+                <view class='shopMallMain_TopActionContainer_index'>- Community -</view>
+                <view class='shopMallMainBannerpageList_ActionContainer'> 薄皮肤 爱问</view>
+<!--  -->
+                <view class='shopMallMainBannerpageList_Container'>
+                  <view class='shopMallMain_TopActionContainer_swiper_container'>
+
+                      <scroll-view scroll-x="true" class='shopMallMain_TopActionContainer_scrollView' style='height:90px;'>
+                      
+                      <block wx:for="{{BannerpageList}}" wx:key="{{ID}}" wx:for-inde="idx">  
+                      <view class='shopMallMainBannerpageList_itemContainer'>
+                          <image mode="scaleToFill" class='shopMallMainBannerpageList_Image' src='{{item.Picture}}'></image>
+                          <view class='shopMallMainBannerpageList_Title'>{{item.Title}}</view>
+                      </view>
+                      </block>
+                      </scroll-view>
+                  </view> 
+                </view>
+ <!--社区专栏  end-->
+
+ 
+<!--为你推荐  -->
+            <view class='shopMallMain_RecommandPage'>
+                <view class='shopMallMain_TopActionContainer_Seckillindex'>为你推荐</view>
+                <view class='shopMallMain_TopActionContainer_index'>- Recommended -</view> 
+              <view class='shopMallMain_HotListProductItemScroll'>
+                  <block wx:for="{{RecommendList}}" wx:key="{{ID}}" wx:for-index="idx">
+                      <view class='shopMallMain_HotListProductItemContainer2'>
+                      <!--View  -->
+                          <image class='recommand_IconView' mode='scaleToFit' src='{{item.Picture}}'></image>
+
+                          <view class='recommand_ProductName'>{{item.Name}}</view>
+                          <view class='recommand_ProductName' style='color:#2f88ff;'>{{item.PointPrice}}积分</view>
+                      </view>
+
+                  </block>
+              </view>
+            <view class='pageBottomTipView' style='text-align:center;color:#2f88ff;'>已经查看到底部了...</view>
+          </view>
+<!--为你推荐end  -->
+
+          </view>
+<!--社区专栏 和为你推荐end -->
+         
+            </view>
+             
+        </view>
+     </view>
+    </view>
+
+<!--尿裤专区  -->
+      <view class='shopmall_Main_container' wx:if="{{userSelectCheckCategoryIndex==1}}">
+      </view>
+
+<!--婴儿无蚊  -->
+      <view class='shopmall_Main_container' wx:if="{{userSelectCheckCategoryIndex==2}}">
+      </view>
+
+<!--婴儿洗护  -->
+      <view class='shopmall_Main_container' wx:if="{{userSelectCheckCategoryIndex==3}}">
+      </view>
+
+<!--妈咪洗护 -->
+      <view class='shopmall_Main_container' wx:if="{{userSelectCheckCategoryIndex==4}}">
+      </view>
+
+<!--产后护理 -->
+      <view class='shopmall_Main_container' wx:if="{{userSelectCheckCategoryIndex==5}}">
+      </view>
+
+
+</scroll-view>

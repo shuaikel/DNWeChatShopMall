@@ -1,23 +1,41 @@
 
+var api = require('../../../api/api.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    items : [
-      '我的宝宝','我的推荐',
-      '我的红包', '我的收藏',
-      '邀请好友（有奖）', '收货地址',
-      '解绑微信', '设置'
-      ]
+    HotRankList : []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.getHotRankListAction()
+  },
+
+  getHotRankListAction : function(e){
+    var date = new Date().getTime()
+    api.apiForHotRankList({
+      query:{
+        date : date
+      },
+      success:(res)=>{
+        if(res.data.Code == 0){
+          this.setData({ HotRankList : res.data.Data})
+        }
+      }
+    })
+  },
+  // 查看商品详情
+  userCheckProductDetailAction:function(e){
+    var productID= e.currentTarget.dataset.model.ID;
+    wx.navigateTo({
+      url: '../../classify/ProductDetailPage/ProductDetailPage?ID=' + productID,
+    })
   },
 
   /**

@@ -1,23 +1,31 @@
 
+
+var api = require('../../../api/api.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    items : [
-      '我的宝宝','我的推荐',
-      '我的红包', '我的收藏',
-      '邀请好友（有奖）', '收货地址',
-      '解绑微信', '设置'
-      ]
+    typeInfo : '',
+    scanViewEnable : false,
+    enableBGColor: 'rgba(18, 136, 256, 1.0)',
+    unenableBGColor: 'rgba(18, 136, 256, 0.5)'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    wx.setNavigationBarTitle({
+      title: options.title,
+    });
+    this.setData({ typeInfo: options.type})
+  },
+  // 用户输入
+  bindinputAction:function(e){
+    this.setData({ scanViewEnable: e.detail.value.length > 0})
   },
 
   /**

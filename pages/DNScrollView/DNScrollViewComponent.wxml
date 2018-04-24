@@ -3,7 +3,7 @@
 <template name ="DNScrollViewComponent">
       <scroll-view scroll-x="true" class='shopMallMain_ActivityListContainer_scrollView' >
       <block wx:for="{{dataSource}}" wx:key="{{ID}}" wx:for-inde="idx">  
-      <view class='shopMallMain_ActivitList_ItemConatiner' style='background-image: url({{item.Picture}});'>
+      <view class='shopMallMain_ActivitList_ItemConatiner' style='background-image: url({{item.Picture}});' bindtap='userCheckProductDetailAction' data-model='{{item}}' data-type='{{2}}'>
       <view>
           <image class='shopMallMain_ActivityList_itemImage' src="{{item.Picture}}" mode='scaleToFill'></image>
           <view class='shopMallMain_ActivityList_itemName'>{{item.Name}}</view>

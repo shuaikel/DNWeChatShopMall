@@ -36,7 +36,6 @@ Page({
    */
   activityItemTapAction:function(e){
     
-    console.log('activityItemTapAction' + e)
     let itemModel = e.currentTarget.dataset.contentmodel
 
     wx.navigateTo({

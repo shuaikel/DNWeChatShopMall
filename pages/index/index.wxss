@@ -1,16 +1,18 @@
 /**index.wxss**/
+@import "../classify/ProductListPage/ClassifyProductListPage.wxss";
+@import "MainProductList/MainProductList.wxss";
 
 .shopMallMain_scrollView{
   width: 100%;
   height: 100%;
   background: white;
+  margin: 0 auto; 
 }
 
 .shopMallMain_HeadView{
   width: 100%;
   height: 45px;
   background: pink;
-  margin-top: 0;
   display: flex;
    /* float: left; */
   flex-wrap: nowrap; 
@@ -19,16 +21,20 @@
 
 .shopMallMain_HeadCatrgoryView{
   width: 100%;
-  height: 45px;
-  background: greenyellow;
+  height: 35px;
   margin-top: 0px;
   display: flex;
   float: left;
+  font-weight: lighter;
 }
 
 .shopmall_Main_container{
-  margin-top: 45px;
+  margin-top: 35px;
   width: 100%;
+}
+
+.categoryListStyle{
+  flex-wrap: wrap;
 }
 
 .shopMallMain_HeadBannerViewSwiper{
@@ -48,7 +54,7 @@
   font-size: 14px;
   text-align: center;
   height: 100%;
-  line-height: 45px;
+  line-height: 35px;
 }
 
 .shopMallMain_TopActionContainer{
@@ -457,4 +463,13 @@
   height:20px;
   align-self: center;
 }
+
+
+.bottomTipView{
+  width: 100%;
+  height: 120px;
+  background: khaki;
+  margin-top: 10px;
+}
+
 

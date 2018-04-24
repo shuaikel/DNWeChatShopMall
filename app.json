@@ -1,6 +1,8 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/index/HotRankListPage/HotRankListPage",
+    "pages/index/scanQRCodePage/scanQRCodePage",
     "pages/logs/logs",
     "pages/classify/index",
     "pages/cart/index",

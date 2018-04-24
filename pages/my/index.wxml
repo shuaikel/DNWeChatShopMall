@@ -1,0 +1,23 @@
+
+
+<scroll-view class='main_scrollView'>
+
+      <view class='topContainerView'></view>
+
+      <view class='middleContainerView'></view>
+
+       <view class='bottomCaver'></view> 
+
+       <view>
+             <block wx:for="{{items}}" wx:key="*this" wx:for-index="idx">
+            <view class='bottomItemContainer'>
+               
+               <image mode='scaleToFill' class='nextImage'></image>
+               {{item}}
+               <view class='lineCaverView'></view>
+            </view>
+      </block>
+       </view>
+
+
+</scroll-view>

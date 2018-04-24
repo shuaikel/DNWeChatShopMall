@@ -22,6 +22,7 @@ Page({
     indexBGColor : '#f3f3f3',
     indexSelectTitleColor : 'white',
     indexDefaultColor : '#333333',
+    productNoOperationBGColor : 'red',
     userSelectProductAmount : 1,
 
     userSelectCheckIndex : 0, // 用户现在商品，详情，评价指引

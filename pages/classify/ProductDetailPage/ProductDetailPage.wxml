@@ -67,7 +67,7 @@
                   </view>
             </block>
         </view>
-        <view class='product_bottom_right_actionView'>加入购物车</view>
+        <view class='product_bottom_right_actionView' style="background:{{producetDetailModel.IsActive==0||producetDetailModel.IsBest==0||producetDetailModel.IsHot==0||producetDetailModel.IsNew==0?productNoOperationBGColor:indexSelectBGColor}}">{{producetDetailModel.IsActive==0||producetDetailModel.IsBest==0||producetDetailModel.IsHot==0||producetDetailModel.IsNew==0?"暂时不可兑换":"加入购物车"}}</view>
     </view>
             
         </view>

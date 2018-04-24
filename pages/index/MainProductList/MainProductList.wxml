@@ -1,0 +1,26 @@
+
+<template name="mainProductList">
+
+    <view class='ProductListPage_ContainerView'>
+              <block wx:for="{{ProductList}}" wx:key="{{ID}}" wx:for-index="idx">
+                  <view class='defaultBGStyle' bindtap='userCheckProductDetailAction' data-model='{{item}}' data-type='{{100}}'>
+                      <view class='ProductContainerStyle'>
+                                            <image class='ProductPage_item_image' src='{{item.Picture}}' mode='scaleToFill'></image>
+                      <view class='ClassifyProductListPage_item_Score'>
+                          <view class='Productitemcaver'></view>
+                          <view class='ClassifyProductListPage_item_Score_sup'>
+                            <text class='Product_text'>{{item.TagWeight == 2 ? "不可积分":"可积分"}}</text>
+                          <text class='ProductsubTitle'>{{item.Name}}
+                            </text>
+                            <view class='ProductScoreNumberContainer'><text class='ProductScoreNumber'>{{item.PointPrice + '积分'}}</text></view>
+                          </view>
+                      </view> 
+                      </view>
+                  </view>
+              </block>
+
+              <view class='bottomTipView'></view>
+    </view>
+
+</template>
+

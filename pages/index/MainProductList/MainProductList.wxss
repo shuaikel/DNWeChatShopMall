@@ -1,48 +1,27 @@
 
 
-
-.ClassifyProductListPage_ContainerView{
-  height: 100%;
-  width: 100%;
-  margin: 0 auto; 
-  background: #f3f3f3;
-}
-
-.ClassifyProductListPage_TopView{
-  height: 45px;
-  margin-top: 0px;
-  width: 100%;
-  margin-left: 0;
-  background: white;
-  flex-wrap: nowrap;
-  display: flex;
-  align-items: center;
-}
-
-.ClassifyProductListPage_TopText{
-  font-size: 12px;
-  font-weight: lighter;
-  width: 25%;
-  align-self: center;
-  text-align: center;
-  line-height: 45px;
-  color: #333333;
-}
-
-.ClassifyProductListPage_itemContainerView{
+.ProductListPage_ContainerView{
   width: 100%;
   height: calc(100% - 45px);
   background: #f3f3f3;
   flex-wrap: wrap;
-
+  display:flex;
+  float:left;
 }
 
-.ClassifyProductListPage_item_subContainer{
-  margin-left: 6px;
-  margin-right: 8px;
-  margin-top: 0px;
+.defaultBGStyle{
+  background: red;
+  margin-top: 10px;
+  white-space: pre-wrap;
+  height: 200px;
+   margin-left: 10px;
+  margin-right: 10px; 
+  width:calc(50% - 20px);
+}
+
+.ProductContainerStyle{
   height: 100%;
-  width: 95%;
+  width: 100%;
   background: white;
   display: flex;
   flex-wrap: wrap;
@@ -50,17 +29,7 @@
   justify-content: center;
 }
 
-.ClassifyProductListPage_item{
-  margin-top: 6px;
-  width: 50%;
-  height: 200px;
-  background: #f3f3f3;
-  float: left;
-}
-
-.ClassifyProductListPage_item_image{
-  /* margin-left: 6px;
-  margin-right: 6px; */
+.ProductPage_item_image{
   height: 130px;
   width: 70%;
   background: white;
@@ -76,7 +45,7 @@
   width: 100%;
 }
 
-.ClassifyProductListPage_item_Score_caver{
+.Productitemcaver{
   margin-top: 0;
   height: 1px;
   background: #f3f3f3;
@@ -90,7 +59,7 @@
     line-height: 14px;
 }
 
-.ClassifyProductListPage_item_Score_text{
+.Product_text{
   margin-top: 0px;
   border-radius: 2px;
   border-color: #2f88ff;  
@@ -101,7 +70,7 @@
   line-height: 12px;
 }
 
-.ClassifyProductListPage_item_Score_subTitle{
+.ProductsubTitle{
   line-height: 12px;
   font-size: 12px;
   color: #333333;
@@ -110,7 +79,7 @@
   margin-left: 2px;
 }
 
-.ClassifyProductListPage_item_ScoreNumber_Container{
+.ProductScoreNumberContainer{
   margin-top: 2px;
   margin-left: 0px;
   height: 20px;
@@ -119,7 +88,7 @@
   align-items: center;
 }
 
-.ClassifyProductListPage_item_ScoreNumber{
+.ProductScoreNumber{
   font-size: 12px;
   line-height: 14px;
   margin-top: 0px;

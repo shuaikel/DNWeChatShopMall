@@ -17,6 +17,10 @@ Page({
     BannerpageList:[],
     RecommendList : [],
 
+    ProductLists : [],
+    catogorySelectColor : '#2f88ff',
+    categoryDefaultColor: '#666666',
+
     productCategoryList: [{
       "ID": 0,
       "TenantID": 1,
@@ -83,9 +87,116 @@ Page({
       }
     })
   },
+
   //  用户切换查看类别
   userSelectCategoryChangeAction:function(e){
+    
     let index = e.currentTarget.dataset.index
+    let model = e.currentTarget.dataset.item
     this.setData({ userSelectCheckCategoryIndex: index})
-  }
+    // 
+    if (index == 0){
+      this.getUserMainPageInfo()
+    }else{
+      this.userChangeCategoryForProductListAction(model, index)
+    }
+  },
+
+  // 加载商品列表数据
+  userChangeCategoryForProductListAction: function (e, index){
+    var CategoryID = e.ID
+    var date = new Date().getTime()
+    var that = this
+    api.apiForCategoryProductList({
+      method: "POST",
+      data: {
+        PageIndex: 1,
+        TenantID: e.TenantID,
+        PageSize: 20,
+        CategoryID: CategoryID,
+      },
+      query: {
+        date: date
+      },
+      success: (res) => {
+        if (res.data.Code == 0) {
+          var tempArr = this.data.ProductLists
+          tempArr[index - 1] = res.data.Data
+          that.setData({
+            ProductLists: tempArr,
+          })
+        }
+      }
+    }) 
+  },
+
+  // 搜索商品
+  userSearchProductAction : function(e){
+    wx.navigateTo({
+      url: '../classify/ProductSearch/ProductSearch',
+    })
+  },
+
+  // 用户查看商品详细
+  userCheckProductDetailAction : function(e){
+    var productID 
+    switch (e.currentTarget.dataset.type){
+      // 秒杀
+      case 1: productID = e.currentTarget.dataset.model.ProductID;break;
+      // 活动
+      case 2: productID = e.currentTarget.dataset.model.ProductID; break;
+      // 热门兑换
+      case 3: productID = e.currentTarget.dataset.model.ID; break;
+      // 推荐
+      case 4: productID = e.currentTarget.dataset.model.ID; break;
+      case 100: productID = e.currentTarget.dataset.model.ID;break;
+      default: productID = ""; break;
+    }
+    wx.navigateTo({
+      url: '../classify/ProductDetailPage/ProductDetailPage?ID=' + productID,
+    })
+  },
+  // 获取用户选择的商品列表
+  userGetProductListAction : function(e){
+    
+    let model = e.currentTarget.dataset.model;
+    var activityID = model.Url.substr(model.Url.lastIndexOf('=') + 1, 1)
+    let index = '100'
+    wx.navigateTo({
+      url: '../classify/ProductListPage/ClassifyProductListPage?index=' + index + '&CategoryID=' + activityID,
+    })
+  },
+  // 用户查看热兑排行榜
+  userCheckRankListPage : function(e){
+    wx.navigateTo({
+      url: 'HotRankListPage/HotRankListPage',
+    })
+  },
+  // 用户查看社区专栏
+  userCheckCommunityItemAction:function(e){
+    let itemModel = e.currentTarget.dataset.model
+    wx.navigateTo({
+      url: '../webView/CommunitywebView?content=' + itemModel.Content,
+    })
+  },
+  // 用户选择 “商品分类”、‘扫码积分’、’防伪追溯‘、’露安适社区‘
+  userCheckTopAction : function(e){
+    let index = e.currentTarget.dataset.index
+    switch (index){
+      case 0 : wx.switchTab({
+        url: '../classify/index',
+      }); break;
+      case 1: wx.navigateTo({
+        url: 'scanQRCodePage/scanQRCodePage?title=扫码积分&type=1',
+      }); break;
+      case 2: wx.navigateTo({
+        url: 'scanQRCodePage/scanQRCodePage?title=防伪追溯&type=2',
+      });  break;
+      case 3: wx.switchTab({
+        url: '../community/index',
+      });break;
+      default : break;
+    }
+  },
+
 })

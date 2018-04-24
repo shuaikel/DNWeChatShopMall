@@ -1,0 +1,61 @@
+
+
+.main_scrollView{
+  width: 100%;
+  background: pink;
+}
+
+
+.topContainerView{
+  width: 100%;
+  height: 135px;
+  background: lightblue;
+}
+
+.middleContainerView{
+  width: 100%;
+  height: 135px;
+  background: orange;
+}
+
+.bottomCaver{
+  width: 100%;
+  background: white;
+  height: 20px;
+}
+
+.bottomItemContainer{
+  height: 45px;
+  width: calc(100% - 20px);
+  font-size: 14px;
+  color: #333333;
+  margin-left: 10px;
+  line-height: 44px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  text-align: left;
+}
+
+.lineCaverView{
+  height: 1px;
+  background: #dae2e3;
+  width: 100%;
+}
+
+.itemTitleStyle{
+  margin-right: 120px;
+  text-align: left;
+  float: left;
+}
+
+.nextImage{
+  width: 12px;
+  height: 12px;
+  align-self: center;
+  float: right;
+  background: red;
+  display: flex;
+
+}

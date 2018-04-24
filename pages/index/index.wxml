@@ -5,7 +5,7 @@
 <!--搜索  start-->
       <view class='shopMallMain_HeadView'>
           <image class='mamaSayIcon'></image>
-          <view class='searchContainer'>
+          <view class='searchContainer' bindtap='userSearchProductAction'>
               <image src='../../images/login_btn_see.png' class='category_search_Container_icon' ></image>
               <text style='margin-left:10px;'>请选择商品关键字</text>
           </view>
@@ -16,7 +16,7 @@
 <!--首页  产品类别索引-->
       <view class='shopMallMain_HeadCatrgoryView'>
           <block wx:for="{{productCategoryList}}" wx:key="*this" wx:for-index="idx">
-              <text class='HeadCatrgoryItemView' bindtap='userSelectCategoryChangeAction' data-item='{{item}}' data-index='{{idx}}'>{{item.Name}}</text>
+              <text class='HeadCatrgoryItemView' bindtap='userSelectCategoryChangeAction' data-item='{{item}}' data-index='{{idx}}' style='color:{{idx==userSelectCheckCategoryIndex?catogorySelectColor:categoryDefaultColor}}'>{{item.Name}}</text>
           </block>
       </view>
 <!--首页  产品类别索引end-->
@@ -40,7 +40,7 @@
 
                 <view class='shopMallMain_TopActionItemContainer'>
                       <block wx:for="{{main_actionArray}}" wx:key="*this" wx:for-index="idx">
-                          <view class='shopMallMain_itemActionContainer'>{{item}}</view>
+                          <view class='shopMallMain_itemActionContainer' bindtap='userCheckTopAction' data-index='{{idx}}'>{{item}}</view>
                       </block>
                 </view>
 
@@ -62,7 +62,8 @@
                       <view style="background: rgba(255,255,255,0.0); width: 200px; height: 100px; display: inline-block;" ></view>
 
                       <block wx:for="{{SeckillList}}" wx:key="{{ID}}" wx:for-inde="idx">  
-                      <view class='shopMallMain_TopActionContainer_itemContainer' style='background-image: url({{item.Picture}});'>
+                      <!--data-type 为1时，表示是秒杀商品  -->
+                      <view class='shopMallMain_TopActionContainer_itemContainer' style='background-image: url({{item.Picture}});' bindtap='userCheckProductDetailAction' data-model='{{item}}' data-type='{{1}}'>
 
                       </view>
                       </block>
@@ -80,7 +81,7 @@
 
             <block wx:for="{{ActivityList}}" wx:key="{{ID}}" wx:for-inde="idx">  
 
-              <view class='shopMallMain_TopActionContainer_productContainer,shopBannerImageSizeToFitStyle' style="background-image: url({{item.Picture}})"></view>
+              <view class='shopMallMain_TopActionContainer_productContainer,shopBannerImageSizeToFitStyle' style="background-image: url({{item.Picture}})" bindtap='userGetProductListAction' data-model='{{item}}'></view>
 
               <view class='shopMallMain_TopActionContainer_swiper_container'>
 
@@ -98,12 +99,12 @@
 
               <view class='shopMallMain_TopActionContainer_Seckillindex'>热兑排行榜</view>
               <view class='shopMallMain_TopActionContainer_index'>- Ranking list -</view>
-              <view class='shopMallMain_TopActionContainer_index' style="padding-top:10px;font-size:14px; color:#2f88ff;">更多></view>
+              <view class='shopMallMain_TopActionContainer_index' style="padding-top:10px;font-size:14px; color:#2f88ff;" bindtap='userCheckRankListPage'>更多></view>
 
               <scroll-view class='shopMallMain_HotListProductItemScroll'>
  <!--热兑排行榜  -->
                   <block wx:for="{{HotList}}" wx:key="{{ID}}" wx:for-index="idx">
-                      <view class='shopMallMain_HotListProductItemContainer'>
+                      <view class='shopMallMain_HotListProductItemContainer' bindtap='userCheckProductDetailAction' data-model='{{item}}' data-type='{{3}}'>
                       <!--排名View  -->
                           <view class='shopMallMain_HotListProductItemRankView'>
                               <image class='shopMallMain_HotListProductItemRankIcon' wx:if="{{idx<3}}" src="{{idx==0?'../../images/race_ic_1.png':idx==1?'../../images/race_ic_2.png':'../../images/race_ic_3.png'}}" mode="scaleToFit"></image>
@@ -139,7 +140,7 @@
                       <scroll-view scroll-x="true" class='shopMallMain_TopActionContainer_scrollView' style='height:90px;'>
                       
                       <block wx:for="{{BannerpageList}}" wx:key="{{ID}}" wx:for-inde="idx">  
-                      <view class='shopMallMainBannerpageList_itemContainer'>
+                      <view class='shopMallMainBannerpageList_itemContainer' bindtap='userCheckCommunityItemAction' data-model='{{item}}'>
                           <image mode="scaleToFill" class='shopMallMainBannerpageList_Image' src='{{item.Picture}}'></image>
                           <view class='shopMallMainBannerpageList_Title'>{{item.Title}}</view>
                       </view>
@@ -156,7 +157,7 @@
                 <view class='shopMallMain_TopActionContainer_index'>- Recommended -</view> 
               <view class='shopMallMain_HotListProductItemScroll'>
                   <block wx:for="{{RecommendList}}" wx:key="{{ID}}" wx:for-index="idx">
-                      <view class='shopMallMain_HotListProductItemContainer2'>
+                      <view class='shopMallMain_HotListProductItemContainer2' bindtap='userCheckProductDetailAction' data-model='{{item}}' data-type='{{4}}'>
                       <!--View  -->
                           <image class='recommand_IconView' mode='scaleToFit' src='{{item.Picture}}'></image>
 
@@ -180,23 +181,33 @@
     </view>
 
 <!--尿裤专区  -->
-      <view class='shopmall_Main_container' wx:if="{{userSelectCheckCategoryIndex==1}}">
+      <view class='shopmall_Main_container,categoryListStyle' wx:if="{{userSelectCheckCategoryIndex==1}}">
+        <import src="MainProductList/MainProductList.wxml" />
+        <template is="mainProductList" data="{{ProductList : ProductLists[0]}}"/>
       </view>
 
 <!--婴儿无蚊  -->
       <view class='shopmall_Main_container' wx:if="{{userSelectCheckCategoryIndex==2}}">
+        <import src="MainProductList/MainProductList.wxml" />
+        <template is="mainProductList" data="{{ProductList : ProductLists[1]}}"/>
       </view>
 
 <!--婴儿洗护  -->
       <view class='shopmall_Main_container' wx:if="{{userSelectCheckCategoryIndex==3}}">
+        <import src="MainProductList/MainProductList.wxml" />
+        <template is="mainProductList" data="{{ProductList : ProductLists[2]}}"/>
       </view>
 
 <!--妈咪洗护 -->
       <view class='shopmall_Main_container' wx:if="{{userSelectCheckCategoryIndex==4}}">
+        <import src="MainProductList/MainProductList.wxml" />
+        <template is="mainProductList" data="{{ProductList : ProductLists[3]}}"/>
       </view>
 
 <!--产后护理 -->
       <view class='shopmall_Main_container' wx:if="{{userSelectCheckCategoryIndex==5}}">
+        <import src="MainProductList/MainProductList.wxml" />
+        <template is="mainProductList" data="{{ProductList : ProductLists[4]}}"/>
       </view>
 
 

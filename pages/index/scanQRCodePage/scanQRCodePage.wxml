@@ -1,0 +1,34 @@
+
+
+<scroll-view class="main_scrollView">
+
+
+      <view class='topContainer'>
+          <view class='topsearchContainerView'>
+              <view class='searchContainer'>
+              <view class='manualInputScanQRCodeView' style='background:{{scanViewEnable?enableBGColor:unenableBGColor}}'>获取积分</view>
+              <view class='manualInputView'>
+                  <input class='manualInput' placeholder='扫一扫或输入16位积分码获取积分' bindinput="bindinputAction"></input>
+              </view>
+              </view>
+          </view>
+
+           <view class='scanContainer'>
+              <view class='scanView'></view>
+           </view>
+      </view>
+
+      <view class='bottomContainer'>
+          <view class='operationIndexTitle'>如何操作</view>
+
+          <view class='operationTitle'>
+
+          {{ typeInfo==1 ? '1、找到产品外包装背面的防伪标签码，揭开表层（揭开式）或刮开图层（刮开式），即可看到内层的防伪积分二维码' : '1、找到产品外包装背面的防伪标签码，未遮盖的二维码即是产品码'}}
+
+          <view style='margin-top:10px;'>{{typeInfo==1 ? '2、点击上边扫一扫图标或手工输入二维码下方的积分码数字，进行积分' : '2、点击上边扫一扫图标或手工输入二维码下方的积分码数字，进行查询'}}
+          </view>
+
+
+        </view>
+      </view>
+</scroll-view>

@@ -12,9 +12,7 @@
 .shopMallMain_HeadView{
   width: 100%;
   height: 45px;
-  background: pink;
   display: flex;
-   /* float: left; */
   flex-wrap: nowrap; 
   align-items: center; 
 }
@@ -25,7 +23,6 @@
   margin-top: 0px;
   display: flex;
   float: left;
-  font-weight: lighter;
 }
 
 .shopmall_Main_container{
@@ -55,6 +52,7 @@
   text-align: center;
   height: 100%;
   line-height: 35px;
+  font-family: '微软雅黑'
 }
 
 .shopMallMain_TopActionContainer{
@@ -64,7 +62,7 @@
 }
 
 .shopMallMain_TopActionContainer_index{
-  padding-top: 15px;
+  padding-top: 8px;
   height: 12px;
   line-height: 12px;
   font-size: 12px;
@@ -78,13 +76,12 @@
   width: 100%;
   height: 50px;
   background: white;
-  display: flex;
-  float: left;
-
+  display: flex; 
+  flex-wrap: nowrap;
 }
 
 .caverView{
-  height: 1px;
+  height: 0.5px;
   background-color: #dae2e3;
   width: 100%;
   margin-top: 10px;
@@ -94,11 +91,9 @@
 .shopMallMain_itemActionContainer{
   flex: 1;
   height: 100%;
-  background: olive;
   font-size: 12px;
   color: #333333;
   text-align: center;
-  line-height: 50px;
 }
 
 .shopMallMain_TopActionContainer_Seckillindex{
@@ -114,7 +109,7 @@
   width: 100%;
   height: 240px;
   background: white;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .shopMallMain_TopActionContainer_productContainer{
@@ -216,8 +211,8 @@
   width: 100%;
   height: 80px;
   background: wheat;
+  display: inline-block;
   margin-top: 10px;
-
 }
 
 .shopMallMain_HotListProductItemScroll{
@@ -307,7 +302,7 @@
 
 .shopMallMain_HotListProductItemCaverLine{
   margin-left: 0px;
-  height: 1px;
+  height: 0.5px;
   background: #dae2e3;
   width: 100%;
   margin-top: 10px;
@@ -371,8 +366,6 @@
 
 .shopMallMain_Recommendpage_scrollView{
   width: 100%;
-  /* white-space: nowrap; 
-  display: flex; */
   align-self: center;
   align-items: center;
   flex-wrap: wrap;
@@ -420,16 +413,19 @@
 .pageBottomTipView{
   margin-top: 0px;
   height: 160px;
-  background: pink;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f3f3;
 }
 
 .mamaSayIcon{
   flex: 2;
-  height: 45px;
-  background: gray;
+  height: 25px;
   margin-left: 10px;
   margin-right: 10px;
+  align-self: center;
 }
 
 .searchContainer{
@@ -451,10 +447,9 @@
 
 .scanQRCodeImage{
   margin-left: 10px;
-  margin-right: 10px;
-  height: 45px;
-  flex: 1;
-  background: cadetblue;
+  margin-right: 20px; 
+  height: 22px;
+  width: 22px;
 }
 
 .category_search_Container_icon{
@@ -464,12 +459,39 @@
   align-self: center;
 }
 
-
 .bottomTipView{
   width: 100%;
   height: 120px;
-  background: khaki;
   margin-top: 10px;
+}
+
+.topItemContainer{
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.topItemImageStyle{
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+
+}
+
+.topItemTitleStyle{
+  font-size: 10px;
+  width: 100%;
+  text-align: center; 
+  height: 10px;
+  margin-top: 0;
+}
+
+.pageNoMoreDataImageStyle{
+  width: 100px;
+  height: 125px;
+  align-self: center;
 }
 
 

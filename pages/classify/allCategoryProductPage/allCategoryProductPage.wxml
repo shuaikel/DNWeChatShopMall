@@ -2,7 +2,7 @@
 
 <template name="allCategoryProductPage">
     <view>
-        <image src="https://static.mammasay.com/image/20171102/6364522992248564746252872.jpg" class='productImage' mode='scaleToFill' bindtap='userTapBannerImageViewAction' data-model='{{item}}'></image>
+        <image src="https://lelch.mammasay.com/img/class/lassify_jpg_01.jpg" class='productImage' mode='scaleToFill' bindtap='userTapBannerImageViewAction' data-model='{{item}}'></image>
 
         <view></view>
     </view>

@@ -34,7 +34,9 @@ Page({
 
     userSelectCheckCategoryIndex: 0,
 
-    main_actionArray : ['商品分类','扫码积分','防伪追溯','露安适社区']
+    main_actionArray : ['商品分类','扫码积分','防伪追溯','露安适社区'],
+    main_actionImageArray: ['https://lelch.mammasay.com/img/index/home_btn_classify@2x.png',
+      'https://lelch.mammasay.com/img/index/home_btn_sweep-code@2x.png', 'https://lelch.mammasay.com/img/index/home_btn_anti-fake@2x.png','https://lelch.mammasay.com/img/index/home_btn_community@2x.png']
   },
   //事件处理函数
   bindViewTap: function() {

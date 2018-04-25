@@ -4,12 +4,12 @@
 
 <!--搜索  start-->
       <view class='shopMallMain_HeadView'>
-          <image class='mamaSayIcon'></image>
+          <image class='mamaSayIcon' mode='scallToFit' src='https://lelch.mammasay.com/img/index/2017.png'></image>
           <view class='searchContainer' bindtap='userSearchProductAction'>
-              <image src='../../images/login_btn_see.png' class='category_search_Container_icon' ></image>
+              <image src='https://lelch.mammasay.com/img/index/home_ic_search@2x.png' class='category_search_Container_icon' mode='scallToFit'></image>
               <text style='margin-left:10px;'>请选择商品关键字</text>
           </view>
-          <image class='scanQRCodeImage'></image>
+          <image class='scanQRCodeImage' src='https://lelch.mammasay.com/img/index/home_btn_screen@2x.png' mode='scallToFit'></image>
       </view>
 <!--搜索  end-->
 
@@ -40,11 +40,16 @@
 
                 <view class='shopMallMain_TopActionItemContainer'>
                       <block wx:for="{{main_actionArray}}" wx:key="*this" wx:for-index="idx">
-                          <view class='shopMallMain_itemActionContainer' bindtap='userCheckTopAction' data-index='{{idx}}'>{{item}}</view>
+                          <view class='shopMallMain_itemActionContainer' bindtap='userCheckTopAction' data-index='{{idx}}'>
+                              <view class='topItemContainer'>
+                               <image class='topItemImageStyle' mode='scaleToFit' src='{{main_actionImageArray[idx]}}'></image>
+                                <view class='topItemTitleStyle'>{{item}}</view> 
+                              </view>
+                          </view>
                       </block>
                 </view>
 
-                <view class='caverView'></view>
+                <view class='caverView' ></view>
           </view>
 <!--露安适 lelch  end-->
 
@@ -54,7 +59,7 @@
                 <view class='shopMallMain_TopActionContainer_index'>- Flash sale -</view>
                 <view class='shopMallMain_TopActionContainer_index' style="padding-top:10px;font-size:14px;">秒杀结束，敬请期待</view>
 <!--  -->
-                <view class='shopMallMain_TopActionContainer_productContainer' style="background-image: url('../../images/user_yaoqing_bg_01.png')">
+                <view class='shopMallMain_TopActionContainer_productContainer,shopBannerImageSizeToFitStyle' style="background-image: url('https://lelch.mammasay.com/img/miaosha/3.jpg')">
                     <!-- <image class='shopMallMain_TopActionContainer_bg' src='../../images/user_yaoqing_bg_01.png'></image> -->
                   <view class='shopMallMain_TopActionContainer_swiper_container'>
 
@@ -91,7 +96,9 @@
               </view> 
             </block>
 <!--做任务  -->
-            <view class='shopMallMainTask_ContainerView'>做任务</view>
+            <view class='shopMallMainTask_ContainerView'>
+            <image src='https://lelch.mammasay.com/img/index/123456.jpg' mode='scallToFit' style='width:100%;height:100%'></image>
+            </view>
 <!--做任务  end-->
 
 <!--热兑排行榜  -->
@@ -167,7 +174,9 @@
 
                   </block>
               </view>
-            <view class='pageBottomTipView' style='text-align:center;color:#2f88ff;'>已经查看到底部了...</view>
+            <view class='pageBottomTipView' style='text-align:center;color:#2f88ff;'>
+                  <image mode='scaleToFill' class='pageNoMoreDataImageStyle' src='https://lelch.mammasay.com/img/index/home_jpg_under@2x.png'></image>
+            </view>
           </view>
 <!--为你推荐end  -->
 

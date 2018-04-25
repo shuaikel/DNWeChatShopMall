@@ -2,25 +2,36 @@
 
 .main_scrollView{
   width: 100%;
-  background: pink;
+  background: white;
 }
 
 
 .topContainerView{
   width: 100%;
-  height: 135px;
+  height: 115px;
   background: lightblue;
+  background-image: url('https://lelch.mammasay.com/img/my/123.png');
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.shopBannerImageSizeToFitStyle{
+  background-repeat:no-repeat; 
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
+  background-color: white;
 }
 
 .middleContainerView{
   width: 100%;
-  height: 135px;
-  background: orange;
+  height: 105px;
+  background: white;
 }
 
 .bottomCaver{
   width: 100%;
-  background: white;
+  background:  #f3f3f3;
   height: 20px;
 }
 
@@ -34,8 +45,11 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  flex-direction: row-reverse;
   text-align: left;
+}
+
+.titleIndexStyle{
+  width: calc(100% - 12px);
 }
 
 .lineCaverView{
@@ -44,18 +58,84 @@
   width: 100%;
 }
 
-.itemTitleStyle{
-  margin-right: 120px;
-  text-align: left;
-  float: left;
-}
-
 .nextImage{
   width: 12px;
   height: 12px;
   align-self: center;
-  float: right;
-  background: red;
+}
+
+.allMineOrderS{
+  height: 35px;
+  width: calc(100% - 20px);
+  font-size: 14px;
+  color: #333333;
+  margin-left: 10px;
+  line-height: 34px;
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.ToptitleIndexStyle{
+  width: calc(100% - 50px);
+}
+
+.middleActionContainerView{
+  margin: 0 auto;
+  height: 70px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.middleActionItemContainer{
+  height: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.middleActionItemIcon{
+  width: 35px;
+  margin-top: 10px;
+  height: 35px;
+}
+
+.middleActionItemTitle{
+  height: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #333333;
+  line-height: 20px;
+}
+
+.userIconStyle{
+  width: 50px;
+  height: 50px;
+  background: pink;
+  align-self: center;
+  border-radius: 25px;
+  margin-left: 30px;
+}
+
+.userNameStyle{
+  width: calc(100% - 175px);
+  height: 20px;
+  align-self: center;
+  margin-left: 15px;
+  text-align: left;
+  line-height: 20px;
+  font-size: 12px;
+  color: white;
+}
+
+.userScoreStyle{
+  width: 80px;
+  height: 35px;
+  background: green;
+  border-top-left-radius: 17.5px;
+  border-bottom-left-radius: 17.5px;
 
 }

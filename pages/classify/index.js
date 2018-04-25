@@ -11,7 +11,7 @@ Page({
       "ID": 0,
       "TenantID": 1,
       "Name": "所有产品",
-      "Picture": "",
+      "Picture": "https://lelch.mammasay.com/img/class/lassify_jpg_01.jpg",
       "PageSize": 100,
       "ParentID": 0,
       "Level": 0,

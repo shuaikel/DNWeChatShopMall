@@ -10,7 +10,13 @@ Page({
       '我的红包', '我的收藏',
       '邀请好友（有奖）', '收货地址',
       '解绑微信', '设置'
-      ]
+      ],
+
+    middleCategoryS: ['待发货', '待收货', '待评论','已完成'],
+    middleCategoryIconS: ['https://lelch.mammasay.com/img/my/user_btn_car@2x.png',
+    'https://lelch.mammasay.com/img/my/user_btn_product@2x.png',
+    'https://lelch.mammasay.com/img/my/user_btn_comment@2x.png',
+    'https://lelch.mammasay.com/img/my/user_btn_succeed@2x.png']
   },
 
   /**

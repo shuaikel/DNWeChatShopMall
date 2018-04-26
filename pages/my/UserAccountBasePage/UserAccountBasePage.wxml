@@ -1,0 +1,59 @@
+
+
+<scroll-view class="main_scrollView">
+      <view class='profil_avatorContainer'>
+          <view style='margin-left:15px;height:100px;line-height:100px;width:50%;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignLeft'>头像</view>
+          <view class='userInfoAvatorStyle'>
+              <image style='width:60px;height:60px;' mode='scaleToFit' src='{{daoGouBaoBaseInfoModel.Avatar}}'></image>
+          </view>
+      </view>
+
+      <view class='profil_Container'>
+        <view class='profil_midItemContainer,flexDisPlayStyle,nowarpDisplayStyle'>
+                <view style='margin-left:15px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignLeft'>昵称</view>
+                <input style='margin-right:15px;font-size:12px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight' value='{{daoGouBaoBaseInfoModel.NickName}}' placeholder='请输入'></input>
+        </view>
+        <view class='caverLineView'></view> 
+
+      <view class='profil_midItemContainer,flexDisPlayStyle,nowarpDisplayStyle'>
+                <view style='margin-left:15px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignLeft'>已绑手机</view>
+                <input style='margin-right:15px;font-size:12px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight' value='{{daoGouBaoBaseInfoModel.Phone}}' placeholder='请输入'></input>
+        </view>
+      <view class='caverLineView'></view> 
+
+      <view class='profil_midItemContainer,flexDisPlayStyle,nowarpDisplayStyle'>
+                <view style='margin-left:15px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignLeft'>生日</view>
+                <input style='margin-right:15px;font-size:12px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight' value='{{daoGouBaoBaseInfoModel.BirthDate}}' placeholder='请选择'></input>
+        </view>
+      <view class='caverLineView'></view> 
+
+
+      <view class='profil_midItemContainer,flexDisPlayStyle,nowarpDisplayStyle'>
+                <view style='margin-left:15px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignLeft'>地区</view>
+                <input style='margin-right:15px;font-size:12px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight' value='{{daoGouBaoBaseInfoModel.Area}}' placeholder='请选择'></input>
+        </view>
+      <view class='caverLineView'></view> 
+
+      <view class='profil_midItemContainer,flexDisPlayStyle,nowarpDisplayStyle'>
+                <view style='margin-left:15px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignLeft'>邮箱</view>
+                <input style='margin-right:15px;font-size:12px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight' value='{{daoGouBaoBaseInfoModel.Email}}' placeholder='请输入'></input>
+        </view>
+      <view class='caverLineView'></view> 
+
+
+
+      </view>
+
+      <view class='profil_channelContainer,flexDisPlayStyle,wrapStyle'>
+        <view style='margin-left:15px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignLeft'>来自渠道</view>
+        <view style='margin-right:15px;font-size:12px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight'>请选择</view>
+      </view>
+
+      <view class='profil_channelContainer,clearBG,alignItemCenterStyle'>
+          <view class='saveView,normalTextStyle'>保存</view>
+      </view>
+
+      <view class='profil_channelContainer,clearBG,alignItemCenterStyle'>
+          <view class='normalGrayTextStyle'>取消</view>
+      </view>
+</scroll-view>

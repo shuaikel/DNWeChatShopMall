@@ -9,7 +9,8 @@ const wxRequest = (params, url) => {
     method: params.method || 'GET',
     data: params.data || {},
     header: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': wx.getStorageSync('sessionKey')
     },
     success: (res) => {
       params.success && params.success(res)
@@ -57,6 +58,9 @@ const apiForMainPageDataSumInfo = (params) => wxRequest(params, host + '/api/cms
 // 获取热兑排行
 const apiForHotRankList = (params) => wxRequest(params, host + '/api/shop/shop/getExchanges?countNum=30&TenantID=1&time=' + params.query.date)
 
+// 当前登录导购信息
+const apiForLoginUserBaseInfo = (params) => wxRequest(params, host + '/api/customer/member/getInformation?time=' + params.query.date)
+
 module.exports = {
   getVolById,
   apiForCommunityPage,
@@ -68,5 +72,6 @@ module.exports = {
   apiForProductEvaluateList,
   apiForProductEvaluateSumInfo,
   apiForMainPageDataSumInfo,
-  apiForHotRankList
+  apiForHotRankList,
+  apiForLoginUserBaseInfo
 }

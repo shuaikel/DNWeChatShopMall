@@ -1,0 +1,111 @@
+
+
+.main_scrollView{
+  width: 100%;
+  height: 101%;
+  background: #f3f3f3;
+}
+
+.profil_avatorContainer{
+  width: 100%;
+  height: 100px;
+  background: white;
+  flex-wrap: nowrap;
+  display: flex;
+}
+
+.profil_Container{
+  width: 100%;
+  height: 250px;
+  background: white;
+  margin-top: 10px;
+}
+
+.profil_channelContainer{
+  width: 100%;
+  height: 50px;
+  background: white;
+  margin-top: 10px;
+}
+
+.flexDisPlayStyle{
+  display: flex;
+}
+
+.nowarpDisplayStyle{
+  flex-wrap: nowrap;
+}
+
+.clearBG{
+  background: rgba(255, 255, 255, 0);
+}
+.normalGrayTextStyle{
+  color: #333333;
+  font-size: 14px;
+  text-align: center;
+  height: 100%;
+  line-height:50px;
+}
+
+.alignItemCenterStyle{
+  justify-content: center;
+  display: flex;
+}
+
+.normalTextStyle{
+  font-size: 14px;
+  text-align: center;
+  height: 100%;
+  color: white;
+  line-height:50px;
+}
+
+.saveView{
+  align-self: center;
+  background: #2f88ff;
+  width: calc(100% - 30px);
+  height: 100%;
+}
+
+.marginEqualWidthStyle{
+  flex: 1;
+}
+
+.textAlignLeft{
+  text-align: left;
+}
+
+.textAlignRight{
+  text-align: right;
+}
+
+.textAlignCemter
+{
+  text-align: center;
+}
+
+.caverLineView{
+  height: 1px;
+  width: 100%;
+  background: #dae2e3;
+}
+
+.profil_midItemContainer{
+  width: 100%;
+  height: 50px;
+  background: white;
+}
+
+.wrapStyle{
+  flex-wrap: wrap;
+}
+
+.userInfoAvatorStyle{
+  width: 60px;
+  height: 60px;
+  align-self: center;
+  margin-right: 15px;
+  display: flex;
+  float: right;
+  background: gray;
+}

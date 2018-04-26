@@ -2,10 +2,10 @@
 
 <scroll-view class='main_scrollView'>
 
-      <view class='topContainerView,shopBannerImageSizeToFitStyle'>
-            <image class='userIconStyle'></image>
-            <view class='userNameStyle'>未登录</view>
-            <view class='userScoreStyle'></view>
+      <view class='topContainerView,shopBannerImageSizeToFitStyle' bindtap='checkUserAccountSumInfo'>
+            <image class='userIconStyle' src='{{daoGouBaoBaseInfoModel.Avatar}}'></image>
+            <view class='userNameStyle'>{{daoGouBaoBaseInfoModel?daoGouBaoBaseInfoModel.NickName:'未登录'}}</view>
+            <view class='userScoreStyle'>{{daoGouBaoBaseInfoModel.Point?daoGouBaoBaseInfoModel.Point:'0'}}积分</view>
       </view>
 
       <view class='middleContainerView'>

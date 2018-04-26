@@ -1,4 +1,6 @@
 
+var api = require('../../api/api.js');
+
 Page({
 
   /**
@@ -16,14 +18,45 @@ Page({
     middleCategoryIconS: ['https://lelch.mammasay.com/img/my/user_btn_car@2x.png',
     'https://lelch.mammasay.com/img/my/user_btn_product@2x.png',
     'https://lelch.mammasay.com/img/my/user_btn_comment@2x.png',
-    'https://lelch.mammasay.com/img/my/user_btn_succeed@2x.png']
+    'https://lelch.mammasay.com/img/my/user_btn_succeed@2x.png'],
+
+    daoGouBaoBaseInfoModel : {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.getCurrentLoginBaseInfoAction()
+  },
+
+  // 获取当前登录导购的基本信息
+  getCurrentLoginBaseInfoAction : function(e){
+    var date = new Date().getTime()
+    var that = this
+    api.apiForLoginUserBaseInfo({
+      query:{
+        date:date
+      },
+      success:(res)=>{
+        if(res.data.Code == 0){
+          that.setData({ daoGouBaoBaseInfoModel : res.data.Data})
+        }
+      }
+    })
+  },
+
+  // 查看当前登录用户的基本信息
+  checkUserAccountSumInfo : function(e){
+    var sessionKey = wx.getStorageSync('sessionKey');
+   if (sessionKey.length > 0){
+     // 用户已经登录
+     wx.navigateTo({
+       url: 'UserAccountBasePage/UserAccountBasePage',
+     })
+   }else{
+     // 用户未登录
+   }
   },
 
   /**

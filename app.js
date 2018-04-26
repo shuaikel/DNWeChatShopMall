@@ -6,6 +6,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    wx.setStorageSync('sessionKey', "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJVc2VySWQiOjgwNjE4MjgyLCJJRCI6ImVhOWYxMTkyLTlmODQtNDYzZi1hODBlLTg2NGE1NzQwMWRjYiIsIlRlbmFudElkIjoxLCJNZW1iZXJJZCI6ODA2MTg0NzIsIkF2YXRhciI6Imh0dHBzOi8vc3RhdGljLm1hbW1hc2F5LmNvbS9pbWFnZS8yMDE3MTIyOC82MzY1MDA1OTI5NzA3NzMzODM4MzU3ODc5LmpwZyIsIlJlYWxOYW1lIjoi5rWL6K-V5Y-36IOh5biF56eRIiwiTmlja05hbWUiOiJaRiIsIlBob25lIjoiMTg5NzAwNzcyNTYiLCJTZXNzaW9uS2V5IjpudWxsfQ.IsmJuvxfFWMNFKXnsMdsMirVXb-gm0naal8NFl-wgQc");
     // 登录
     wx.login({
       success: res => {

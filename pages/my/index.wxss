@@ -134,8 +134,11 @@
 .userScoreStyle{
   width: 80px;
   height: 35px;
-  background: green;
+  background: white;
   border-top-left-radius: 17.5px;
   border-bottom-left-radius: 17.5px;
-
+  font-size: 14px;
+  color: #2f88ff;
+  line-height: 35px;
+  text-align: right
 }

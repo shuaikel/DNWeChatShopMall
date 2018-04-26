@@ -11,7 +11,8 @@
     "pages/webView/CommunitywebView",
     "pages/classify/ProductListPage/ClassifyProductListPage",
     "pages/classify/ProductDetailPage/ProductDetailPage",
-    "pages/classify/ProductSearch/ProductSearch"
+    "pages/classify/ProductSearch/ProductSearch",
+    "pages/my/UserAccountBasePage/UserAccountBasePage"
   ],
   "window":{
     "backgroundTextStyle": "white",

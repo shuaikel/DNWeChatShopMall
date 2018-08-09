@@ -1,16 +1,24 @@
 //app.js
+
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
+    var sessionKey = wx.getStorageSync('sessionKey') || ''
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
-    wx.setStorageSync('sessionKey', "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJVc2VySWQiOjgwNjE4MjgyLCJJRCI6ImVhOWYxMTkyLTlmODQtNDYzZi1hODBlLTg2NGE1NzQwMWRjYiIsIlRlbmFudElkIjoxLCJNZW1iZXJJZCI6ODA2MTg0NzIsIkF2YXRhciI6Imh0dHBzOi8vc3RhdGljLm1hbW1hc2F5LmNvbS9pbWFnZS8yMDE3MTIyOC82MzY1MDA1OTI5NzA3NzMzODM4MzU3ODc5LmpwZyIsIlJlYWxOYW1lIjoi5rWL6K-V5Y-36IOh5biF56eRIiwiTmlja05hbWUiOiJaRiIsIlBob25lIjoiMTg5NzAwNzcyNTYiLCJTZXNzaW9uS2V5IjpudWxsfQ.IsmJuvxfFWMNFKXnsMdsMirVXb-gm0naal8NFl-wgQc");
+    console.log('sessionKey info' + sessionKey)
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        
+        if(sessionKey.length <= 0){
+          // wx.reLaunch({
+          //   url: 'index',
+          // })
+        }
       }
     })
     // 获取用户信息

@@ -12,7 +12,7 @@
     "pages/classify/ProductListPage/ClassifyProductListPage",
     "pages/classify/ProductDetailPage/ProductDetailPage",
     "pages/classify/ProductSearch/ProductSearch",
-    "pages/my/UserAccountBasePage/UserAccountBasePage"
+    "pages/my/DNLogin/DNLogin"
   ],
   "window":{
     "backgroundTextStyle": "white",

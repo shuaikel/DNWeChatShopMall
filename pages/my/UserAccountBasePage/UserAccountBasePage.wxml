@@ -1,6 +1,30 @@
 
+<view class="section" wx:if="{{showModal}}">
+  <view class="section__title">日期选择器</view>
+  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+    <view class="picker">
+      当前选择: {{date}}
+    </view>
+  </picker>
+</view>
 
-<scroll-view class="main_scrollView">
+<view style='background:#f3f3f3;width:100%;height:100%;'>
+
+        <!-- <import src = "../../modelBGView/DNModelBGView.wxml" />
+        <template is="DNModelBGViewXML" data="{{showModal:showModal}}"/> -->
+
+      <!-- <view class='birthdayContainerStyle' wx:if="{{showModal}}">
+          <view class="section">
+            <view class="section__title">日期选择器</view>
+            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" style='height:calc(100% - 20px);'>
+            <view class="picker">
+                当前选择: {{date}}
+            </view>
+            </picker>
+          </view>
+      </view>  -->
+
+      <scroll-view class="main_scrollView">
       <view class='profil_avatorContainer'>
           <view style='margin-left:15px;height:100px;line-height:100px;width:50%;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignLeft'>头像</view>
           <view class='userInfoAvatorStyle'>
@@ -11,17 +35,17 @@
       <view class='profil_Container'>
         <view class='profil_midItemContainer,flexDisPlayStyle,nowarpDisplayStyle'>
                 <view style='margin-left:15px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignLeft'>昵称</view>
-                <input style='margin-right:15px;font-size:12px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight' value='{{daoGouBaoBaseInfoModel.NickName}}' placeholder='请输入'></input>
+                <input style='margin-right:15px;font-size:12px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight' value='{{daoGouBaoBaseInfoModel.NickName}}' placeholder='请输入' bindinput="userInputNickName"></input>
         </view>
         <view class='caverLineView'></view> 
 
       <view class='profil_midItemContainer,flexDisPlayStyle,nowarpDisplayStyle'>
                 <view style='margin-left:15px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignLeft'>已绑手机</view>
-                <input style='margin-right:15px;font-size:12px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight' value='{{daoGouBaoBaseInfoModel.Phone}}' placeholder='请输入'></input>
+                <input style='margin-right:15px;font-size:12px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight' value='{{daoGouBaoBaseInfoModel.Phone}}' placeholder='请输入' bindinput="userInputMobilePhone"></input>
         </view>
       <view class='caverLineView'></view> 
 
-      <view class='profil_midItemContainer,flexDisPlayStyle,nowarpDisplayStyle'>
+      <view class='profil_midItemContainer,flexDisPlayStyle,nowarpDisplayStyle' bindtap='userCheckBirthdayAction'>
                 <view style='margin-left:15px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignLeft'>生日</view>
                 <input style='margin-right:15px;font-size:12px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight' value='{{daoGouBaoBaseInfoModel.BirthDate}}' placeholder='请选择'></input>
         </view>
@@ -36,7 +60,7 @@
 
       <view class='profil_midItemContainer,flexDisPlayStyle,nowarpDisplayStyle'>
                 <view style='margin-left:15px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignLeft'>邮箱</view>
-                <input style='margin-right:15px;font-size:12px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight' value='{{daoGouBaoBaseInfoModel.Email}}' placeholder='请输入'></input>
+                <input style='margin-right:15px;font-size:12px;height:49px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight' value='{{daoGouBaoBaseInfoModel.Email}}' placeholder='请输入' bindinput="userInputEmailAction"></input>
         </view>
       <view class='caverLineView'></view> 
 
@@ -46,7 +70,13 @@
 
       <view class='profil_channelContainer,flexDisPlayStyle,wrapStyle'>
         <view style='margin-left:15px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignLeft'>来自渠道</view>
-        <view style='margin-right:15px;font-size:12px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight'>请选择</view>
+        <view style='margin-right:15px;font-size:12px;' class='normalGrayTextStyle,marginEqualWidthStyle,textAlignRight' bindtap='userSelectChannelAction'>请选择</view>
+      </view>
+
+      <view style='width:90%;height:{{channelContainerHeight}}px;background:#f3f3f3;display:flex;flex-wrap: wrap;margin-left:5%;'>
+          <block wx:for="{{userChannelLists}}" wx:key="*this" wx:for-index="idx">
+              <view style='height:20px;margin-top:10px;margin-left:10px;font-size:12px; color:#666666;' class='channelItemStyle' bindtap='userSelectChannelItemAction' data-index='{{idx}}' wx:if="{{channelContainerHeight>0}}">{{item}}</view>
+          </block>
       </view>
 
       <view class='profil_channelContainer,clearBG,alignItemCenterStyle'>
@@ -57,3 +87,6 @@
           <view class='normalGrayTextStyle'>取消</view>
       </view>
 </scroll-view>
+
+
+</view>
